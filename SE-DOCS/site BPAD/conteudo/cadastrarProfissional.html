@@ -1,32 +1,34 @@
 ﻿           
-            <h1> Boletim Diario de Procedimento Ambulatorial</h1>
-            <p>Profissional : Sevirino Batista Filho
-            </p>
+         <h1> Cadastrar Profissional de Saúde</h1>
             <br />
             <br />
             <form name="form1" method="post" action="">
             <p>Dados a preencher </p>
-               <p> Nome da Unidade de Saúde : 
+               <p> Nome : 
                  <label>
                  <input type="text" name="nome" id="nome" size="50">
                  </label>
                </p>
-               <p>Sigla da Unidade de Saúde : 
+               <p>CBO : 
                  <label>
-                 <input type="text" name="sigla" id="sigla" size="5">
-                 </label>
-                 CNPJ da Unidade de Saúde : 
-                 <input type="text" name="cnpj" id="cnpj" size="13"> 
-				</p>
-               <p>Nome da Secretaria de Saúde Destino : 
-                 <label>
-                 <input type="text" name="mResidencia" id="mResidencia" size="25">
-                 </label>
-               Tipo do Órgão  : 
-                 <label>
-                 <select name="orgao" id="orgao">
+                 <select name="cbo" id="cbo">
                  </select>
                  </label>
+                 CR - Coselho Regional :
+                 <label>
+                 <input type="text" name="cr" id="cr" size="10">
+                 </label>
+                 CNS :
+                 <label>
+                 <input type="text" name="cns" id="cns" size="10">
+                 </label>    
+				</p>
+               <p>Unidade de Saúde  : 
+                 <label>
+                 <select name="us" id="us">
+                 <option value="NomeDoPosto">Nome do Posto</option>
+                 </select>
+                 </label>               
                </p>
                <p>
                  <label>
