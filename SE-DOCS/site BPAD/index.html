@@ -11,73 +11,7 @@ name=description>
 <META content="Copyright (c) 2008 by YOUR NAME. All rights reserved!" 
 name=copyright>
 <META content="MSHTML 6.00.6000.16705" name=GENERATOR></HEAD>
-
-
-<BODY>
-<DIV id=container>
-<DIV class=header>
-  <H1><IMG 
-alt="phpLD Template Tester" src="arquivos/logo.gif" 
-border=0></A></H1></DIV>
-<DIV class=bar><SPAN></SPAN>
-<UL>
-  <LI><A class=common href="home.html" onClick="makerequest('home.html','hw');return false;">Home</A> </LI>
-  <LI><A class=common href="bDiarioDeProducao.html" onClick="makerequest('bDiarioDeProducao.html','hw');return false;">Producao</A> </LI>
-  <LI><A class=common href="bAmbulatorial.html" onClick="makerequest('bAmbulatorial.html','hw');return false;">Ambulatorial</A></LI>
-  <LI><A class=common href="construcao.html" onClick="makerequest('construcao.html','hw');return false;">Consolidado</A> </LI>
-  <LI><A class=common href="construcao.html" onClick="makerequest('construcao.html','hw');return false;">Movimento</A> </LI>
-  <LI></LI>
-  <LI></LI>
-</UL></DIV>
-<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
-  <TBODY>
-  <TR>
-    <TD class=padding vAlign=top width=221>
-      <H2 class=boxcaption>Autenticacao</H2>
-      <DIV class=box>
-      <FORM action=/testrun/index.php method=get>
-     		<label>  Login :</label>
-            <input type="text" name="login" id="login">
-          	<br /> <br />
-            <label>Senha :</label>
-            <input type="password" name="senha" id="senha" size="10">
-            <br /> <br />
-            <INPUT type=submit value=Busca>
-            </FORM></DIV>
-      <P class=boxbottom></P>
-      <H2 class=boxcaption>Usuario</H2>
-      <DIV class=box>
-      <UL>
-        <LI><A href="nome.html" target=_blank>Nome</A> 
-        <LI><A href="email.html" target=_blank>Email</A>                
-      </UL>
-      </DIV>
-      <H2 class=boxcaption>&nbsp;</H2>
-      
-    <TD vAlign=top width="100%">
-      <TABLE cellSpacing=0 cellPadding=0 width="98%" align=center border=0>
-        <TBODY>
-        <TR>
-          <TD vAlign=top><p><BR>
-              <BR />
-              <!--Div que usa ajax -->
-              <div id="hw"> </div>
-            </TD>
-          <TD vAlign=top><BR>
-            <BR>            <BR></TD>
-            </TR></TBODY></TABLE>
-      <SCRIPT language=javascript type=text/javascript>/* <![CDATA[ */var root = '/testrun';
-      var a = document.getElementsByTagName("a");
-      for(i = 0; i< a.length; i++)
-         if(a[i].id != '')
-            a[i].onclick = count_link;
-      function count_link() {
-         i = new Image();
-         i.src= root+'/cl.php?id='+this.id;
-         return true;
-      }
-      /* ]]> */</SCRIPT>
-      <script type="text/javascript">
+<script type="text/javascript">
 <!--
 //Create a boolean variable to check for a valid Internet Explorer instance.
 var xmlhttp = false;
@@ -114,7 +48,76 @@ xmlhttp.send(null);
 }
 //-->
 </script>
+
+<BODY>
+<DIV id=container>
+<DIV class=header>
+  <H1><IMG 
+alt="phpLD Template Tester" src="arquivos/logo.gif" 
+border=0></A></H1></DIV>
+<DIV class=bar><SPAN></SPAN>
+<UL>
+  <LI><A class=common href="home.html" onClick="makerequest('home.html','conteudo');return false;">Home</A> </LI>
+  <LI><A class=common href="subMenu/unidadeDeSaude.html" onClick="makerequest('subMenu/unidadeDeSaude.html','submenu');return false;">Unidade de Saude</A> </LI>
+  <LI><A class=common href="subMenu/profissional.html" onClick="makerequest('subMenu/profissional.html','submenu');return false;">Profissional de Saúde</A></LI>
+  <LI><A class=common href="subMenu/paciente.html" onClick="makerequest('subMenu/paciente.html','submenu');return false;">Paciente</A> </LI>
+  <LI><A class=common href="subMenu/boletim.html" onClick="makerequest('subMenu/boletim.html','submenu');return false;">Boletim</A> </LI>
+  <LI></LI>
+  <LI></LI>
+</UL></DIV>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=padding vAlign=top width=221>
+    <!--SubMenu em ajax-->
+    <div id="submenu">
+             
+      </div>
+   
+    
+      
+    <TD vAlign=top width="100%">
+      <TABLE cellSpacing=0 cellPadding=0 width="98%" align=center border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top><p><BR>
+              <BR />
+              <!--Div conteudo que usa ajax -->
+              <div id="conteudo"> </div>
+            </TD>
+          <TD vAlign=top><BR>
+            <BR>            <BR></TD>
+            </TR></TBODY></TABLE>
+      <SCRIPT language=javascript type=text/javascript>/* <![CDATA[ */var root = '/testrun';
+      var a = document.getElementsByTagName("a");
+      for(i = 0; i< a.length; i++)
+         if(a[i].id != '')
+            a[i].onclick = count_link;
+      function count_link() {
+         i = new Image();
+         i.src= root+'/cl.php?id='+this.id;
+         return true;
+      }
+      /* ]]> */</SCRIPT>
+      
       <BR></TD>
+      <TD class=padding2 vAlign=top width=221>
+      <H2 class=boxcaption>Autenticacao</H2>
+      <DIV class=box>
+      <FORM action=/testrun/index.php method=get>
+     		<label>  Login :</label>
+            <input type="text" name="login" id="login">
+          	<br /> <br />
+            <label>Senha :</label>
+            <input type="password" name="senha" id="senha" size="10">
+            <br /> <br />
+            <INPUT type=submit value="OK">
+            </FORM></DIV>
+      <P class=boxbottom></P>
+     
+      
+     
+      </TD>
     <TD class=padding2 vAlign=top width=221>&nbsp;</TD>
 </TR></TBODY></TABLE></DIV><BR>
 <DIV class=footer>
