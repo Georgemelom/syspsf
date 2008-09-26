@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <!-- saved from url=(0058)http://www.phpldaddons.com/testrun/?preview=Lemon Shadow 2 -->
 <HTML 
-xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>phpLD Template Tester</TITLE>
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>BPAD</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=UTF-8"><LINK 
 href="arquivos/style.css" type=text/css 
 rel=stylesheet>
@@ -39,12 +39,18 @@ xmlhttp = new XMLHttpRequest();
 function makerequest(serverPage, objID) {
 var obj = document.getElementById(objID);
 xmlhttp.open("GET", serverPage);
-xmlhttp.onreadystatechange = function() {
-if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-obj.innerHTML = xmlhttp.responseText;
-}
-}
+xmlhttp.onreadystatechange = function() 
+	{
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		obj.innerHTML = xmlhttp.responseText;
+		}
+	}
 xmlhttp.send(null);
+}
+
+function mudaN(pagina1, ID1, pagina2, ID2) {
+makerequest(pagina1, ID1);
+makerequest(pagina2, ID2);
 }
 //-->
 </script>
@@ -57,12 +63,14 @@ alt="phpLD Template Tester" src="arquivos/logo.gif"
 border=0></A></H1></DIV>
 <DIV class=bar><SPAN></SPAN>
 <UL>
-  <LI><A class=common href="home.html" onClick="makerequest('home.html','conteudo');return false;">Home</A> </LI>
-  <LI><A class=common href="subMenu/unidadeDeSaude.html" onClick="makerequest('subMenu/unidadeDeSaude.html','submenu');return false;">Unidade de Saude</A> </LI>
-  <LI><A class=common href="subMenu/profissional.html" onClick="makerequest('subMenu/profissional.html','submenu');return false;">Profissional de Saúde</A></LI>
-  <LI><A class=common href="subMenu/paciente.html" onClick="makerequest('subMenu/paciente.html','submenu');return false;">Paciente</A> </LI>
-  <LI><A class=common href="subMenu/boletim.html" onClick="makerequest('subMenu/boletim.html','submenu');return false;">Boletim</A> </LI>
-  <LI></LI>
+  <LI><A class=common href="home.html" onClick="mudaN('home.html','conteudo','clear.html','submenu');return false;">Home</A> </LI>
+  <LI><A class=common href="subMenu/unidadeDeSaude.html" onClick="mudaN('subMenu/unidadeDeSaude.html','submenu','conteudo/cadastrarUS.html','conteudo');return false;">Unidade de Saude</A> </LI>
+  <LI><A class=common href="subMenu/profissional.html" onClick="mudaN('subMenu/profissional.html','submenu','conteudo/cadastrarProfissional.html','conteudo');return false;">Profissional de Saúde</A></LI>
+  <LI><A class=common href="subMenu/paciente.html" onClick="mudaN('subMenu/paciente.html','submenu','conteudo/cadastrarPaciente.html','conteudo');return false;">Paciente</A> </LI>
+  <LI><A class=common href="subMenu/boletim.html" onClick="mudaN('subMenu/boletim.html','submenu','conteudo/preencherBoletim.html','conteudo');return false;">Boletim</A> </LI>
+  
+<!--  <LI><A class=common href="subMenu/boletim.html" onClick="makerequest('subMenu/boletim.html','submenu');return false;">Boletim</A> </LI>
+-->  <LI></LI>
   <LI></LI>
 </UL></DIV>
 <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
