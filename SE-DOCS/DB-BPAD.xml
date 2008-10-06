@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes" ?>
 <DBMODEL Version="4.0">
 <SETTINGS>
-<GLOBALSETTINGS ModelName="DB-BPAD" IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="MySQL" ZoomFac="88.89" XPos="4" YPos="513" DefaultDataType="5" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="BPAD" DefQueryDBConn="" Printer="" HPageCount="4.0" PageAspectRatio="1.440892512336408" PageOrientation="1" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="1" DefaultTableType="0" ActivateRefDefForNewRelations="1" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="1" DBQuoteCharacter="`" CreateSQLforLinkedObjects="1" DefModelFont="Tahoma" CanvasWidth="4096" CanvasHeight="2842" />
+<GLOBALSETTINGS ModelName="DB-BPAD" IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="MySQL" ZoomFac="88.89" XPos="4" YPos="430" DefaultDataType="5" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="BPAD" DefQueryDBConn="" Printer="" HPageCount="4.0" PageAspectRatio="1.440892512336408" PageOrientation="1" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="1" DefaultTableType="0" ActivateRefDefForNewRelations="1" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="1" DBQuoteCharacter="`" CreateSQLforLinkedObjects="1" DefModelFont="Tahoma" CanvasWidth="4096" CanvasHeight="2842" />
 <DATATYPEGROUPS>
 <DATATYPEGROUP Name="Numeric Types" Icon="1" />
 <DATATYPEGROUP Name="Date and Time Types" Icon="2" />
@@ -331,9 +331,8 @@
 </TABLE>
 <TABLE ID="3203" Tablename="Municipios" PrevTableName="Table_03" XPos="496" YPos="95" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="4" >
 <COLUMNS>
-<COLUMN ID="3205" ColName="IBGE" PrevColName="" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
+<COLUMN ID="3205" ColName="Codigo" PrevColName="" Pos="0" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -500,9 +499,8 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3308" ColName="Municipios_IBGE" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3471" ColName="Municipios_Codigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -553,22 +551,21 @@
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3298" LengthParam="0" />
 <INDEXCOLUMN idColumn="3309" LengthParam="0" />
-<INDEXCOLUMN idColumn="3308" LengthParam="0" />
+<INDEXCOLUMN idColumn="3471" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 <INDEX ID="3310" IndexName="UnidadeSaude_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3307">
 <INDEXCOLUMNS>
-<INDEXCOLUMN idColumn="3308" LengthParam="0" />
 <INDEXCOLUMN idColumn="3309" LengthParam="0" />
+<INDEXCOLUMN idColumn="3471" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 </INDICES>
 </TABLE>
 <TABLE ID="3311" Tablename="ProfissionaisSaude" PrevTableName="Table_10" XPos="25" YPos="392" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="17" >
 <COLUMNS>
-<COLUMN ID="3313" ColName="psID" PrevColName="" Pos="0" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
+<COLUMN ID="3313" ColName="psCodigo" PrevColName="psID" Pos="0" idDatatype="20" DatatypeParams="(5)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -587,13 +584,12 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3457" ColName="UnidadeSaude_Municipios_IBGE" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3456" ColName="UnidadeSaude_Municipios_UF_UF" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(2)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3456" ColName="UnidadeSaude_Municipios_UF_UF" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(2)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3474" ColName="UnidadeSaude_Municipios_Codigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
@@ -654,8 +650,8 @@
 <INDEXCOLUMN idColumn="3335" LengthParam="0" />
 <INDEXCOLUMN idColumn="3344" LengthParam="0" />
 <INDEXCOLUMN idColumn="3397" LengthParam="0" />
-<INDEXCOLUMN idColumn="3457" LengthParam="0" />
 <INDEXCOLUMN idColumn="3456" LengthParam="0" />
+<INDEXCOLUMN idColumn="3474" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 <INDEX ID="3336" IndexName="ProfissionaisSaude_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3334">
@@ -672,16 +668,15 @@
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3397" LengthParam="0" />
 <INDEXCOLUMN idColumn="3456" LengthParam="0" />
-<INDEXCOLUMN idColumn="3457" LengthParam="0" />
+<INDEXCOLUMN idColumn="3474" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 </INDICES>
 </TABLE>
 <TABLE ID="3320" Tablename="Pacientes" PrevTableName="Table_11" XPos="43" YPos="918" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="19" >
 <COLUMNS>
-<COLUMN ID="3356" ColName="pcCNS" PrevColName="" Pos="5" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
+<COLUMN ID="3356" ColName="pcCNS" PrevColName="" Pos="5" idDatatype="20" DatatypeParams="(15)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -690,9 +685,8 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3431" ColName="Municipios_IBGE" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3472" ColName="Municipios_Codigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -727,28 +721,21 @@
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3356" LengthParam="0" />
 <INDEXCOLUMN idColumn="3432" LengthParam="0" />
-<INDEXCOLUMN idColumn="3431" LengthParam="0" />
+<INDEXCOLUMN idColumn="3472" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 <INDEX ID="3433" IndexName="Pacientes_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3430">
 <INDEXCOLUMNS>
-<INDEXCOLUMN idColumn="3431" LengthParam="0" />
 <INDEXCOLUMN idColumn="3432" LengthParam="0" />
+<INDEXCOLUMN idColumn="3472" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 </INDICES>
 </TABLE>
 <TABLE ID="3341" Tablename="Atendimentos" PrevTableName="Table_12" XPos="614" YPos="863" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="22" >
 <COLUMNS>
-<COLUMN ID="3376" ColName="Pacientes_pcCNS" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3376" ColName="Pacientes_pcCNS" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(15)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
-<OPTIONSELECT Value="0" />
-</OPTIONSELECTED>
-</COLUMN>
-<COLUMN ID="3435" ColName="Pacientes_Municipios_IBGE" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
-<OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -772,12 +759,6 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3467" ColName="ProfissionaisSaude_UnidadeSaude_Municipios_IBGE" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
-<OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
-<OPTIONSELECT Value="0" />
-</OPTIONSELECTED>
-</COLUMN>
 <COLUMN ID="3466" ColName="ProfissionaisSaude_UnidadeSaude_usCNES" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(6)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
@@ -793,15 +774,24 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3463" ColName="ProfissionaisSaude_psID" PrevColName="" Pos="1" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="3392" ColName="ateID" PrevColName="" Pos="10" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="1" />
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3392" ColName="ateID" PrevColName="" Pos="10" idDatatype="5" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
+<COLUMN ID="3475" ColName="Pacientes_Municipios_Codigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
-<OPTIONSELECT Value="1" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3480" ColName="ProfissionaisSaude_psCodigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(5)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="3477" ColName="ProfissionaisSaude_UnidadeSaude_Municipios_Codigo" PrevColName="" Pos="1" idDatatype="20" DatatypeParams="(4)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
@@ -809,7 +799,7 @@
 <OPTIONSELECTED>
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="3394" ColName="ateCaracterAtendimento" PrevColName="" Pos="12" idDatatype="20" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
+<COLUMN ID="3394" ColName="ateCaracterAtendimento" PrevColName="" Pos="12" idDatatype="20" DatatypeParams="(2)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
@@ -825,27 +815,25 @@
 <INDEX ID="3380" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3376" LengthParam="0" />
-<INDEXCOLUMN idColumn="3435" LengthParam="0" />
 <INDEXCOLUMN idColumn="3434" LengthParam="0" />
 <INDEXCOLUMN idColumn="3437" LengthParam="0" />
 <INDEXCOLUMN idColumn="3448" LengthParam="0" />
 <INDEXCOLUMN idColumn="3468" LengthParam="0" />
-<INDEXCOLUMN idColumn="3467" LengthParam="0" />
 <INDEXCOLUMN idColumn="3466" LengthParam="0" />
 <INDEXCOLUMN idColumn="3465" LengthParam="0" />
 <INDEXCOLUMN idColumn="3464" LengthParam="0" />
-<INDEXCOLUMN idColumn="3463" LengthParam="0" />
 <INDEXCOLUMN idColumn="3392" LengthParam="0" />
+<INDEXCOLUMN idColumn="3475" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 <INDEX ID="3379" IndexName="Atendimentos_FKIndex1" IndexKind="1" FKRefDef_Obj_id="3370">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3376" LengthParam="0" />
 <INDEXCOLUMN idColumn="3434" LengthParam="0" />
-<INDEXCOLUMN idColumn="3435" LengthParam="0" />
+<INDEXCOLUMN idColumn="3475" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
-<INDEX ID="3438" IndexName="Atendimentos_FKIndex3" IndexKind="1" FKRefDef_Obj_id="3436">
+<INDEX ID="3438" IndexName="Atendimentos_FKIndex2" IndexKind="1" FKRefDef_Obj_id="3436">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="3437" LengthParam="0" />
 </INDEXCOLUMNS>
@@ -857,12 +845,12 @@
 </INDEX>
 <INDEX ID="3469" IndexName="Atendimentos_FKIndex4" IndexKind="1" FKRefDef_Obj_id="3462">
 <INDEXCOLUMNS>
-<INDEXCOLUMN idColumn="3463" LengthParam="0" />
 <INDEXCOLUMN idColumn="3464" LengthParam="0" />
 <INDEXCOLUMN idColumn="3465" LengthParam="0" />
 <INDEXCOLUMN idColumn="3466" LengthParam="0" />
-<INDEXCOLUMN idColumn="3467" LengthParam="0" />
 <INDEXCOLUMN idColumn="3468" LengthParam="0" />
+<INDEXCOLUMN idColumn="3477" LengthParam="0" />
+<INDEXCOLUMN idColumn="3480" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 </INDICES>
@@ -872,15 +860,15 @@
 <RELATION ID="3220" RelationName="Rel_01" Kind="1" SrcTable="3215" DestTable="3203" FKFields="UF=UF_UF\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3222" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" />
 <RELATION ID="3266" RelationName="Rel_03" Kind="1" SrcTable="3230" DestTable="3238" FKFields="proCodigo=Procedimentos_proCodigo\n" FKFieldsComments="\n" relDirection="1" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3268" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" />
 <RELATION ID="3270" RelationName="Rel_04" Kind="1" SrcTable="3186" DestTable="3238" FKFields="CBO=CBO_CBO\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3272" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" />
-<RELATION ID="3307" RelationName="MunicipioUnidadeSaude" Kind="1" SrcTable="3203" DestTable="3296" FKFields="IBGE=Municipios_IBGE\nUF_UF=Municipios_UF_UF\n" FKFieldsComments="\n\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3310" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="16" />
-<RELATION ID="3315" RelationName="Rel_07" Kind="1" SrcTable="3296" DestTable="3311" FKFields="usCNES=UnidadeSaude_usCNES\nMunicipios_UF_UF=UnidadeSaude_Municipios_UF_UF\nMunicipios_IBGE=UnidadeSaude_Municipios_IBGE\n" FKFieldsComments="\n\n\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3409" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" />
+<RELATION ID="3307" RelationName="MunicipioUnidadeSaude" Kind="1" SrcTable="3203" DestTable="3296" FKFields="UF_UF=Municipios_UF_UF\nCodigo=Municipios_Codigo\n" FKFieldsComments="\n\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3310" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="16" />
+<RELATION ID="3315" RelationName="Rel_07" Kind="1" SrcTable="3296" DestTable="3311" FKFields="usCNES=UnidadeSaude_usCNES\nMunicipios_UF_UF=UnidadeSaude_Municipios_UF_UF\nMunicipios_Codigo=UnidadeSaude_Municipios_Codigo\n" FKFieldsComments="\n\n\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3409" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" />
 <RELATION ID="3334" RelationName="Rel_08" Kind="1" SrcTable="3186" DestTable="3311" FKFields="CBO=CBO_CBO\n" FKFieldsComments="\n" relDirection="4" MidOffset="15" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3336" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="20" />
 <RELATION ID="3343" RelationName="Rel_10" Kind="1" SrcTable="3209" DestTable="3311" FKFields="Conselho=Conselhos_Conselho\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3345" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="23" />
-<RELATION ID="3430" RelationName="Rel_16" Kind="1" SrcTable="3203" DestTable="3320" FKFields="IBGE=Municipios_IBGE\nUF_UF=Municipios_UF_UF\n" FKFieldsComments="\n\n" relDirection="3" MidOffset="272" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3433" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
-<RELATION ID="3370" RelationName="Rel_13" Kind="1" SrcTable="3320" DestTable="3341" FKFields="pcCNS=Pacientes_pcCNS\nMunicipios_UF_UF=Pacientes_Municipios_UF_UF\nMunicipios_IBGE=Pacientes_Municipios_IBGE\n" FKFieldsComments="\n\n\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3379" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
+<RELATION ID="3430" RelationName="Rel_16" Kind="1" SrcTable="3203" DestTable="3320" FKFields="UF_UF=Municipios_UF_UF\nCodigo=Municipios_Codigo\n" FKFieldsComments="\n\n" relDirection="3" MidOffset="272" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3433" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
+<RELATION ID="3370" RelationName="Rel_13" Kind="1" SrcTable="3320" DestTable="3341" FKFields="pcCNS=Pacientes_pcCNS\nMunicipios_UF_UF=Pacientes_Municipios_UF_UF\nMunicipios_Codigo=Pacientes_Municipios_Codigo\n" FKFieldsComments="\n\n\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3379" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
 <RELATION ID="3436" RelationName="Rel_17" Kind="2" SrcTable="3230" DestTable="3341" FKFields="proCodigo=Procedimentos_proCodigo\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3438" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
 <RELATION ID="3447" RelationName="Rel_15" Kind="1" SrcTable="3193" DestTable="3341" FKFields="CID=CID_CID\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3449" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="24" />
-<RELATION ID="3462" RelationName="Rel_12" Kind="2" SrcTable="3311" DestTable="3341" FKFields="psID=ProfissionaisSaude_psID\nCBO_CBO=ProfissionaisSaude_CBO_CBO\nConselhos_Conselho=ProfissionaisSaude_Conselhos_Conselho\nUnidadeSaude_usCNES=ProfissionaisSaude_UnidadeSaude_usCNES\nUnidadeSaude_Municipios_IBGE=ProfissionaisSaude_UnidadeSaude_Municipios_IBGE\nUnidadeSaude_Municipios_UF_UF=ProfissionaisSaude_UnidadeSaude_Municipios_UF_UF\n" FKFieldsComments="\n\n\n\n\n\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3469" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" />
+<RELATION ID="3462" RelationName="Rel_12" Kind="2" SrcTable="3311" DestTable="3341" FKFields="CBO_CBO=ProfissionaisSaude_CBO_CBO\nConselhos_Conselho=ProfissionaisSaude_Conselhos_Conselho\nUnidadeSaude_usCNES=ProfissionaisSaude_UnidadeSaude_usCNES\nUnidadeSaude_Municipios_UF_UF=ProfissionaisSaude_UnidadeSaude_Municipios_UF_UF\nUnidadeSaude_Municipios_Codigo=ProfissionaisSaude_UnidadeSaude_Municipios_Codigo\npsCodigo=ProfissionaisSaude_psCodigo\n" FKFieldsComments="\n\n\n\n\n\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="3469" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" />
 </RELATIONS>
 <NOTES>
 <NOTE ID="3369" NoteName="Note_01" XPos="443" YPos="14" NoteText="BANCO DE DADOS - BPAD\n" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="26" />
