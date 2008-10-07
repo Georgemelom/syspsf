@@ -60,10 +60,7 @@ public class Paciente extends Form implements CommandListener {
 	public void commandAction(Command cmd, Displayable disp) {
 
 		if (cmd.equals(cmd_ok)) {
-			UIController.getInstance().paciente(pcNome.getString(),
-					pcCns.getString(), pcDtNasc.getString(),
-					pcSexo.getSelectedIndex(), pcEndereco.getString(),
-					pcCidade.getString(), pcLocalidade.getString());
+			UIController.getInstance().paciente();
 		}
 	}
 }

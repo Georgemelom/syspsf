@@ -30,7 +30,7 @@ public class Login extends Form implements CommandListener {
 		login = new TextField("login: ", "", 10, TextField.ANY);
 		passwd = new TextField("senha: ", "", 10, TextField.PASSWORD);
 		
-		cmd_login = new Command("logar", Command.OK, 1);
+		cmd_login = new Command("Logon", Command.OK, 1);
 		
 		append(login);
 		append(passwd);
