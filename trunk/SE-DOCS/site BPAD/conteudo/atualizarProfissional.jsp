@@ -14,8 +14,8 @@
                  <label>
                  <input type="reset" name="limpar" id="limpar" value="Limpar">
                  </label>
-               </p>
-             </form>
+              </p>
+</form>
             
              <br />
              <br />
@@ -31,7 +31,9 @@
                  <select name="cbo" id="cbo">
                  </select>
                  </label>
-                 CR - Coselho Regional :
+                 <input type="text" name="cr3" id="cr3" size="50">
+               </p>
+               <p>CR - Coselho Regional :
                  <label>
                  <input type="text" name="cr" id="cr" size="10">
                  </label>
@@ -39,8 +41,9 @@
                  <select name="uf" id="uf">
                  <option value="pb">Paraíba</option>
                  </select>
-                 </p>
-                <p> CNS :
+                 <input type="text" name="cr2" id="cr2" size="30">
+               </p>
+               <p> CNS :
                  <label>
                  <input type="text" name="cns" id="cns" size="10">
                  </label>    

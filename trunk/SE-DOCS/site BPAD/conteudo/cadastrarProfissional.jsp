@@ -9,20 +9,21 @@
                  <input type="text" name="nome" id="nome" size="50">
                  </label>
                </p>
-               <p>CBO : 
+              <p>CR - Coselho Regional :
+                <label>
+                <input type="text" name="cr" id="cr" size="10">
+                </label>
+CNS :
+<label>
+<input type="text" name="cns" id="cns" size="10">
+</label>
+CBO : 
                  <label>
                  <select name="cbo" id="cbo">
                  </select>
-                 </label>
-                 CR - Coselho Regional :
-                 <label>
-                 <input type="text" name="cr" id="cr" size="10">
-                 </label>
-                 CNS :
-                 <label>
-                 <input type="text" name="cns" id="cns" size="10">
-                 </label>    
-				</p>
+                 <input type="text" name="cns2" id="cns2" size="10">
+</label>
+                </p>
                <p>Unidade de Saúde  : 
                  <label>
                  <select name="us" id="us">
