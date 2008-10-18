@@ -1,4 +1,6 @@
-CREATE DATABASE bpad;
+﻿CREATE DATABASE bpad;
+
+use bpad;
 
 CREATE TABLE CBO (
   CBO VARCHAR(6) NOT NULL,
@@ -107,7 +109,7 @@ CREATE TABLE UnidadeSaude (
   usNome VARCHAR(100) NOT NULL,
   usSigla VARCHAR(20) NULL,
   usRazaoSocial VARCHAR(100) NULL,
-  usCNPJ VARCHAR(14)) NULL,
+  usCNPJ VARCHAR(14) NULL,
   usEndereco VARCHAR(100) NULL,
   PRIMARY KEY(usCNES),
   INDEX UnidadeSaude_FKIndex1(Cidade_ciSigla)
