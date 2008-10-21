@@ -1,0 +1,11 @@
+MIDlet-1: RmsMID2,,br.com.banco.RmsMID2
+MIDlet-2: RmsMID1,,br.com.banco.RmsMID1
+MIDlet-3: RmsMID3,,br.com.banco.RmsMID3
+MIDlet-4: RmsMID4,,br.com.banco.RmsMID4
+MIDlet-5: RmsMID5,,br.com.banco.RmsMID5
+MIDlet-Jar-URL: BancoAcesso.jar
+MIDlet-Name: BancoAcesso Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
