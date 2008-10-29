@@ -1,0 +1,126 @@
+﻿CREATE DATABASE `bpad` /*!40100 DEFAULT CHARACTER SET latin1 */;
+DROP TABLE IF EXISTS `bpad`.`cbo`;
+CREATE TABLE  `bpad`.`cbo` (
+  `CBO` varchar(6) NOT NULL,
+  `Descricao` varchar(100) NOT NULL,
+  PRIMARY KEY (`CBO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`cid`;
+CREATE TABLE  `bpad`.`cid` (
+  `CID` varchar(5) NOT NULL,
+  `Descricao` varchar(50) NOT NULL,
+  `OPS` varchar(1) DEFAULT NULL,
+  `Categoria` varchar(1) DEFAULT NULL,
+  `SubCategoria` varchar(1) DEFAULT NULL,
+  `RestricaoSexo` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`CID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`cidade`;
+CREATE TABLE  `bpad`.`cidade` (
+  `ciSigla` varchar(6) NOT NULL,
+  `Estado_esSigla` varchar(2) NOT NULL,
+  `ciNome` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ciSigla`),
+  KEY `Municipios_FKIndex1` (`Estado_esSigla`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`conselhos`;
+CREATE TABLE  `bpad`.`conselhos` (
+  `Conselho` varchar(10) NOT NULL,
+  `Descricao` varchar(70) NOT NULL,
+  PRIMARY KEY (`Conselho`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`estado`;
+CREATE TABLE  `bpad`.`estado` (
+  `esSigla` varchar(2) NOT NULL,
+  `esNome` varchar(60) NOT NULL,
+  PRIMARY KEY (`esSigla`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`fichadiaria`;
+CREATE TABLE  `bpad`.`fichadiaria` (
+  `fdID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Folha_foID` int(10) unsigned NOT NULL,
+  `CID_CID` varchar(5) NOT NULL,
+  `Pacientes_pcCNS` varchar(15) NOT NULL,
+  `ProfissionaisSaude_psCodigo` varchar(5) NOT NULL,
+  PRIMARY KEY (`fdID`),
+  KEY `FichaDiaria_FKIndex1` (`ProfissionaisSaude_psCodigo`),
+  KEY `FichaDiaria_FKIndex2` (`Pacientes_pcCNS`),
+  KEY `FichaDiaria_FKIndex3` (`CID_CID`),
+  KEY `FichaDiaria_FKIndex4` (`Folha_foID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`folha`;
+CREATE TABLE  `bpad`.`folha` (
+  `foID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `foData` date NOT NULL,
+  PRIMARY KEY (`foID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`login`;
+CREATE TABLE  `bpad`.`login` (
+  `idLogin` varchar(15) NOT NULL,
+  `ProfissionaisSaude_psCodigo` varchar(5) NOT NULL,
+  `senha` varchar(15) NOT NULL,
+  PRIMARY KEY (`idLogin`),
+  KEY `Login_FKIndex1` (`ProfissionaisSaude_psCodigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`pacientes`;
+CREATE TABLE  `bpad`.`pacientes` (
+  `pccns` varchar(6) NOT NULL DEFAULT '',
+  `pcNome` varchar(50) NOT NULL,
+  `pcDataNascimento` date NOT NULL,
+  `pcSexo` varchar(1) NOT NULL,
+  `pcEndereco` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`pccns`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`procedimentos`;
+CREATE TABLE  `bpad`.`procedimentos` (
+  `proCodigo` varchar(9) NOT NULL,
+  `proDigito` varchar(1) NOT NULL,
+  `proDescricao` varchar(60) NOT NULL,
+  `proSexo` varchar(1) NOT NULL,
+  PRIMARY KEY (`proCodigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`procedimentoscbo`;
+CREATE TABLE  `bpad`.`procedimentoscbo` (
+  `Procedimentos_proCodigo` varchar(9) NOT NULL,
+  `CBO_CBO` varchar(6) NOT NULL,
+  KEY `ProcedimentosCBO_FKIndex1` (`CBO_CBO`),
+  KEY `ProcedimentosCBO_FKIndex2` (`Procedimentos_proCodigo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`profissionalsaude`;
+CREATE TABLE  `bpad`.`profissionalsaude` (
+  `psCns` varchar(6) NOT NULL DEFAULT '',
+  `cbo_Cbo` varchar(6) NOT NULL,
+  `conselhos_Conselho` varchar(10) NOT NULL,
+  `unidadeSaude_usCnes` varchar(6) NOT NULL,
+  `psNome` varchar(50) NOT NULL,
+  `psCpf` varchar(12) DEFAULT NULL,
+  `psTelefone` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`psCns`),
+  KEY `ProfissionaisSaude_FKIndex1` (`unidadeSaude_usCnes`),
+  KEY `ProfissionaisSaude_FKIndex2` (`conselhos_Conselho`),
+  KEY `ProfissionaisSaude_FKIndex3` (`cbo_Cbo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `bpad`.`unidadesaude`;
+CREATE TABLE  `bpad`.`unidadesaude` (
+  `usCNES` varchar(6) NOT NULL,
+  `Cidade_ciSigla` varchar(6) NOT NULL,
+  `usNome` varchar(100) NOT NULL,
+  `usSigla` varchar(20) DEFAULT NULL,
+  `usRazaoSocial` varchar(100) DEFAULT NULL,
+  `usCNPJ` varchar(14) DEFAULT NULL,
+  `usEndereco` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`usCNES`),
+  KEY `UnidadeSaude_FKIndex1` (`Cidade_ciSigla`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
