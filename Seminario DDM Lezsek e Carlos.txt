@@ -1,0 +1,5 @@
+Seminário 06-12-08 = Redes Digitais moveis (1,2,3 G - Bluetooh, CDMA, NFC- www.nfc-forum.org)
+
+Atualizar Paciente = 26-11-08
+Cadastrar Paciente = 12-11-08
+Consultar Paciente = 19-11-08
