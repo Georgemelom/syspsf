@@ -6,6 +6,7 @@ import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 
+import br.com.unibratec.core.Record;
 import br.com.unibratec.core.UIController;
 import br.com.unibratec.telas.Login;
 
@@ -17,6 +18,7 @@ public class ProjetoMIDLet extends MIDlet implements CommandListener{
 
 	public ProjetoMIDLet() {
 		controller = UIController.createInstance(this);
+		Record.startUp();
 	}
 
 	protected void startApp() throws MIDletStateChangeException {
@@ -36,7 +38,8 @@ public class ProjetoMIDLet extends MIDlet implements CommandListener{
 	}
 	
 	public void commandAction(Command arg0, Displayable arg1) {
-		// TODO Auto-generated method stub
-		
+		if (!started) {
+			controller.setCurrent(Login.getInstance("LOGIN"));
+		}
 	}
 }
