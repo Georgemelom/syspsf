@@ -6,6 +6,7 @@ import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.TextField;
 
+import br.com.unibratec.core.Record;
 import br.com.unibratec.core.UIController;
 
 public class Login extends Form implements CommandListener {
@@ -26,10 +27,11 @@ public class Login extends Form implements CommandListener {
 		return instance;
 	}
 
+	
 	private Login(String title) {
 		super(title);
-		
-		login = new TextField("login: ", "", 10, TextField.ANY);
+
+		login = new TextField("login: ", Record.getLogin(), 10, TextField.ANY);
 		passwd = new TextField("senha: ", "", 10, TextField.PASSWORD);
 		
 		cmd_login = new Command("Logon", Command.OK, 0);
@@ -49,9 +51,9 @@ public class Login extends Form implements CommandListener {
 		if (cmd == cmd_login) {
 			UIController.getInstance().login(login.getString(), passwd.getString());
 		}else if (cmd.equals(cmd_salvar)) {
-			UIController.getInstance().salvar(login.getString(), passwd.getString());
+			UIController.getInstance().salvarLogin(login.getString(), passwd.getString());
 		} else if (cmd.equals(cmd_exibir)) {
-			UIController.getInstance().exibir();
+			UIController.getInstance().exibirLogin();
 		}
 	}
 
