@@ -22,7 +22,7 @@ import br.com.unibratec.telas.FichaDiaria;
 import br.com.unibratec.telas.Login;
 import br.com.unibratec.telas.Paciente;
 import br.com.unibratec.telas.ProfissionalSaude;
-import br.com.unibratec.telas.UnidadeSaude;
+import br.com.unibratec.telas._UnidadeSaude;
 
 public class UIController {
 
@@ -157,7 +157,7 @@ public class UIController {
 
 	public void unidadeSaude() {
 
-		setCurrent(UnidadeSaude.getInstance("Unidade de Saude"));
+		setCurrent(_UnidadeSaude.getInstance("Unidade de Saude"));
 
 	}
 
@@ -219,7 +219,7 @@ public class UIController {
 public void telas(int x) {
 		
 		switch (x) {
-		case 0 :	setCurrent(UnidadeSaude.getInstance("Cadastrar Unidade de Saude"));
+		case 0 :	setCurrent(_UnidadeSaude.getInstance("Cadastrar Unidade de Saude"));
 		break;
 		case 1 :	setCurrent(ProfissionalSaude.getInstance("Cadstrar Profissional"));
 		break;

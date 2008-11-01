@@ -8,7 +8,7 @@ import javax.microedition.lcdui.TextField;
 
 import br.com.unibratec.core.UIController;
 
-public class UnidadeSaude extends Form implements CommandListener {
+public class _UnidadeSaude extends Form implements CommandListener {
 
 	private TextField usCnes;
 	private TextField cidade_ciSigla;
@@ -24,16 +24,16 @@ public class UnidadeSaude extends Form implements CommandListener {
 	private Command cmd_salvar;
 	private Command cmd_exibir;
 
-	private static UnidadeSaude instance;
+	private static _UnidadeSaude instance;
 
-	public static UnidadeSaude getInstance(String title) {
+	public static _UnidadeSaude getInstance(String title) {
 		if (instance == null) {
-			instance = new UnidadeSaude(title);
+			instance = new _UnidadeSaude(title);
 		}
 		return instance;
 	}
 
-	private UnidadeSaude(String title) {
+	private _UnidadeSaude(String title) {
 		super(title);
 
 		usCnes = new TextField("CNES: ", "", 20, TextField.ANY);
