@@ -481,7 +481,10 @@ public class Record {
 			openRecord();
 			String rec = new String(rs.getRecord(idUsCnes));
 			usCnes = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			for(int i = 0; i< rec.length();i++){
+				
+			}
+			
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
