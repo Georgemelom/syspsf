@@ -27,7 +27,7 @@ public class Alerta extends Alert {
 			e.printStackTrace();
 		}
 		setImage(img);
-		setTimeout(4000);
+		setTimeout(3000);
 	}
 
 }

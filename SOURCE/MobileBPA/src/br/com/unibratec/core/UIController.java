@@ -1,5 +1,7 @@
 package br.com.unibratec.core;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.util.Stack;
 
 import javax.microedition.lcdui.Alert;
@@ -13,8 +15,8 @@ import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotOpenException;
 
 import br.com.unibratec.ProjetoMIDLet;
-import br.com.unibratec.menus.SubMenu;
 import br.com.unibratec.menus.MenuPrincipal;
+import br.com.unibratec.menus.SubMenu;
 import br.com.unibratec.telas.Alerta;
 import br.com.unibratec.telas.FichaDiaria;
 import br.com.unibratec.telas.Login;
@@ -82,18 +84,70 @@ public class UIController {
 		return instance;
 	}
 	
-	public void salvar(String login, String passwd) {
+	public void salvarLogin(String login, String passwd) {
 		Record.setLogin(login);
+		Record.setSenha(passwd);
 	}
-	
-	public void exibir() {
-		Alert alert = new Alert("O dado é:", Record.getLogin(), null, AlertType.CONFIRMATION);
+	public void salvarUs(String usCnes, String cidade_ciSigla, String usNome, String usSigla, String usRazaoSocial, String usCnpj, String usEndereco ) {
+		Record.setUsCnes(usCnes);
+		Record.setCidade_ciSigla(cidade_ciSigla);
+		Record.setUsNome(usNome);
+		Record.setUsSigla(usSigla);
+		Record.setUsRazaoSocial(usRazaoSocial);
+		Record.setUsCnpj(usCnpj);
+		Record.setUsEndereco(usEndereco);
+	}
+		
+	public void exibirLogin() {
+		Alert alert = new Alert("Seu Login  é:", Record.getLogin(), null, AlertType.CONFIRMATION);
 		disp.setCurrent(alert);
 	}
 	
+	public void exibirUs() {
+
+		 Alert alert = new Alert("Unidade de Saude:", "", null,
+		 AlertType.INFO);
+		 disp.setCurrent(alert);
+	}
+//		List lista = new List("Lista Original", List.IMPLICIT);
+//		Record sc = new Record();
+//
+//		try {
+//			RecordStore rs = RecordStore.openRecordStore("dados", true);
+//
+//			for (int i = 1; i <= rs.getNumRecords(); i++) {
+//				lista.append(retornaRegistro(i), null);
+//				sc.setParametros(lista);
+//			}
+//		} catch (Exception error) {
+//			error.printStackTrace();
+//		}
+//	}
+//	
+//	public String retornaRegistro(int id) {   
+//		String toReturn = "";   
+//		try {   
+//		RecordStore rs = RecordStore.openRecordStore("dados", true);   
+//		int recordSize = rs.getRecordSize(id);   
+//		byte[] data = new byte[recordSize];   
+//		ByteArrayInputStream bais = new ByteArrayInputStream(data);   
+//		DataInputStream dis = new DataInputStream(bais);   
+//		int numBytes = rs.getRecord(id, data, 0);   
+//		toReturn = dis.readUTF();   
+//		bais.reset();   
+//		bais.close();   
+//		dis.close();   
+//		} catch (Exception e) {   
+//		e.printStackTrace();   
+//		}   
+//	return toReturn;   
+//		    }
+
+	
+	
 	public void login(String login, String passwd) {
-		Record.getLogin();
-		if (login.equals("adm") && passwd.equals("123")) {    				// conecata ao servidor e realiza login
+		
+		if (login.equals(Record.getLogin()) && passwd.equals(Record.getSenha())) {    				// conecata ao servidor e realiza login
 			setCurrent(MenuPrincipal.getInstance("Menu Principal"));  	// encaminha para MENU
 			
 		} else {
