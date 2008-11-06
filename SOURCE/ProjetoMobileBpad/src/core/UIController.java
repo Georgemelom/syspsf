@@ -8,8 +8,6 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 
 import midlet.ProjetoMIDLet;
-import midlet.RmsFicha;
-import midlet.RmsPaciente;
 import record.RecordLogin;
 import form.Alerta;
 import form.Login;
@@ -79,11 +77,7 @@ public class UIController {
 		disp.setCurrent(paciente);
 	}
 
-	private void setCurrent(RmsPaciente instance2) {
-		telas.push(instance2);
-		setCurrent(instance2);
-	}
-
+	
 	public void setCurrent(Alert alerta, Displayable tela) {
 		telas.push(tela);
 		disp.setCurrent(alerta, tela);
@@ -98,9 +92,9 @@ public class UIController {
 	public void ok(int x) {
 		
 		switch (x) {
-		case 0 :	setCurrent(RmsFicha.getInstance("Fichas de Atendidmento"));
+		case 0 :    ;
 		break;
-		case 1 :	setCurrent(RmsPaciente.getInstance("Cadastro de Pacientes"));
+		case 1 :	;
 		break;
 		
 		}
