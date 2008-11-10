@@ -47,7 +47,7 @@ public class ListaAtendimento extends List implements CommandListener {
 		} else if (cmd.equals(cmd_voltar)) {
 			UIController.getInstance().voltar();
 		} else if (cmd.equals(cmd_ok)) {
-			UIController.getInstance().ok(getSelectedIndex());
+//			UIController.getInstance().ok(getSelectedIndex());
 		}
 	}
 }

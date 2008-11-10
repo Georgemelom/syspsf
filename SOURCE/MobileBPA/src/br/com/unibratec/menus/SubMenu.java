@@ -46,7 +46,7 @@ public class SubMenu extends List implements CommandListener {
 		} else if (cmd.equals(cmd_voltar)) {
 			UIController.getInstance().voltar();
 		} else if (cmd.equals(cmd_ok)) {
-			UIController.getInstance().telas(getSelectedIndex());
+//			UIController.getInstance().telas(getSelectedIndex());
 		}
 	}
 }
