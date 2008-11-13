@@ -273,7 +273,7 @@ public class UIController {
 
 	}
 
-	public void atalizar() {
+	public void atualizar() {
 		// TODO Auto-generated method stub
 
 	}

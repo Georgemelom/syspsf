@@ -43,7 +43,7 @@ public class FichaDiaria extends Form implements CommandListener {
 		pacientes_pcCns = new TextField("CNS Paciente: ", "", 6, TextField.ANY);
 		profissinalSaude_psCns = new TextField("CNS Profissional :", "", 6, TextField.ANY);
 
-		append(fdDtProducao);
+//		append(fdDtProducao);
 		append(fdID);
 		append(folha_folID);
 		append(procedimentos_proCodigo);
@@ -77,9 +77,9 @@ public class FichaDiaria extends Form implements CommandListener {
 					fdID.getString(), folha_folID.getString(), 
 					procedimentos_proCodigo.getString(),
 					pacientes_pcCns.getString(),
-					profissinalSaude_psCns.getString(), getTitle());
+					profissinalSaude_psCns.getString());
 		} else if (cmd.equals(cmd_exibir)) {
-			UIController.getInstance().exibirPs();
+			UIController.getInstance().exibirFd();
 		}
 	}
 

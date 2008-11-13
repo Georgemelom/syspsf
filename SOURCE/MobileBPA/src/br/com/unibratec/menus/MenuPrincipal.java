@@ -61,7 +61,7 @@ public class MenuPrincipal extends List implements CommandListener {
 		} else if (cmd.equals(cmd_cad)) {
 			UIController.getInstance().cadastrar(getSelectedIndex());
 		} else if (cmd.equals(cmd_atu)) {
-			UIController.getInstance().atalizar();
+			UIController.getInstance().atualizar();
 		} else if (cmd.equals(cmd_exc)) {
 			UIController.getInstance().excluir();
 		} else if (cmd.equals(cmd_con)) {

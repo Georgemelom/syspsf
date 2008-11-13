@@ -89,35 +89,50 @@ public class Record {
 					idSenha = idRegistro;
 				} else if (rec.indexOf("uscnes=") != -1) {
 					idUsCnes = idRegistro;
-				} else if (rec.indexOf("cidade_ciSilga=") != -1) {
+				} else if (rec.indexOf("cidade_cisigla=") != -1) {
 					idCidade_ciSigla = idRegistro;
 				} else if (rec.indexOf("usnome=") != -1) {
 					idUsNome = idRegistro;
 				} else if (rec.indexOf("ussigla=") != -1) {
 					idUsSigla = idRegistro;
-				} else if (rec.indexOf("usrazaoSocial=") != -1) {
+				} else if (rec.indexOf("usrazaosocial=") != -1) {
 					idUsRazaoSocial = idRegistro;
 				} else if (rec.indexOf("uscnpj=") != -1) {
 					idUsCnpj = idRegistro;
-				} else if (rec.indexOf("usendereeco=") != -1) {
+				} else if (rec.indexOf("usendereco=") != -1) {
 					idUsEndereco = idRegistro;
-				} else if (rec.indexOf("pcCns=") != -1) {
+				} else if (rec.indexOf("pccns=") != -1) {
 					idPcCns = idRegistro;
-				} else if (rec.indexOf("pcNome=") != -1) {
+				} else if (rec.indexOf("pcnome=") != -1) {
 					idPcNome = idRegistro;
-				} else if (rec.indexOf("pcDtNasc=") != -1) {
+				} else if (rec.indexOf("pcdtnasc=") != -1) {
 					idPcDtNasc = idRegistro;
-				} else if (rec.indexOf("pcSexo=") != -1) {
+				} else if (rec.indexOf("pcsexo=") != -1) {
 					idPcSexo = idRegistro;
-				} else if (rec.indexOf("pcEndereco=") != -1) {
+				} else if (rec.indexOf("pcendereco=") != -1) {
 					idPcEndereco = idRegistro;
-				} else if (rec.indexOf("psCns=") != -1) {
+				} else if (rec.indexOf("pscns=") != -1) {
 					idPsCns = idRegistro;
-				} else if (rec.indexOf("psNome=") != -1) {
+				} else if (rec.indexOf("psnome=") != -1) {
 					idPsNome = idRegistro;
-				} else if (rec.indexOf("psCbo=") != -1) {
+				} else if (rec.indexOf("pscbo=") != -1) {
 					idPsCbo = idRegistro;
-				} else if (rec.indexOf("psCr=") != -1) {
+				} else if (rec.indexOf("pscr=") != -1) {
+					idPsCr = idRegistro;
+				}else if (rec.indexOf("fddtproducao=") != -1) {
+					idPsCr = idRegistro;
+				}else if (rec.indexOf("fdid=") != -1) {
+					idPsCr = idRegistro;
+				}
+				else if (rec.indexOf("folha_folid=") != -1) {
+					idPsCr = idRegistro;
+				}
+				else if (rec.indexOf("procedimentos_procodigo=") != -1) {
+					idPsCr = idRegistro;
+				}
+				else if (rec.indexOf("pacientes_pccns=") != -1) {
+					idPsCr = idRegistro;
+				}else if (rec.indexOf("profissinalsaude_pscns=") != -1) {
 					idPsCr = idRegistro;
 				}
 			}
@@ -252,7 +267,7 @@ public class Record {
 	public static void setCidade_ciSigla(String cidade_ciSigla) {
 		try {
 			openRecord();
-			String rec = "cidade_ciSigla=" + cidade_ciSigla;
+			String rec = "cidade_cisigla=" + cidade_ciSigla;
 			byte[] data = rec.getBytes();
 			if (idCidade_ciSigla != 0) {// registro já existe
 				rs.setRecord(idCidade_ciSigla, data, 0, data.length);
@@ -349,7 +364,7 @@ public class Record {
 	public static void setUsRazaoSocial(String usRazaoSocial) {
 		try {
 			openRecord();
-			String rec = "usrazaoSocial=" + usRazaoSocial;
+			String rec = "usrazaosocial=" + usRazaoSocial;
 			byte[] data = rec.getBytes();
 			if (idUsRazaoSocial != 0) {// registro já existe
 				rs.setRecord(idUsRazaoSocial, data, 0, data.length);
@@ -729,10 +744,11 @@ public class Record {
 			}
 		}
 	}
+	
 	public static void setFdDtProducao(Date fdDtProducao) {
 		try {
 			openRecord();
-			String rec = "fdDtProducao=" + fdDtProducao;
+			String rec = "fddtproducao=" + fdDtProducao;
 			byte[] data = rec.getBytes();
 			if (idFdDtProducao != 0) {// registro já existe
 				rs.setRecord(idFdDtProducao, data, 0, data.length);
@@ -764,7 +780,7 @@ public class Record {
 	public static void setFdID(String fdID) {
 		try {
 			openRecord();
-			String rec = "fdID=" + fdID;
+			String rec = "fdid=" + fdID;
 			byte[] data = rec.getBytes();
 			if (idFdID != 0) {// registro já existe
 				rs.setRecord(idFdID, data, 0, data.length);
@@ -796,7 +812,7 @@ public class Record {
 	public static void setFolha_folID(String folha_folID) {
 		try {
 			openRecord();
-			String rec = "folha_folID=" + folha_folID;
+			String rec = "folha_folid=" + folha_folID;
 			byte[] data = rec.getBytes();
 			if (idFolha_folID != 0) {// registro já existe
 				rs.setRecord(idFolha_folID, data, 0, data.length);
@@ -828,7 +844,7 @@ public class Record {
 	public static void setProcedimentos_proCodigo(String procedimentos_proCodigo) {
 		try {
 			openRecord();
-			String rec = "procedimentos_proCodigo=" + procedimentos_proCodigo;
+			String rec = "procedimentos_procodigo=" + procedimentos_proCodigo;
 			byte[] data = rec.getBytes();
 			if (idProcedimentos_proCodigo != 0) {// registro já existe
 				rs.setRecord(idProcedimentos_proCodigo, data, 0, data.length);
@@ -860,7 +876,7 @@ public class Record {
 	public static void setPacientes_pcCns(String pacientes_pcCns) {
 		try {
 			openRecord();
-			String rec = "pacientes_pcCns=" + pacientes_pcCns;
+			String rec = "pacientes_pccns=" + pacientes_pcCns;
 			byte[] data = rec.getBytes();
 			if (idPacientes_pcCns != 0) {// registro já existe
 				rs.setRecord(idPacientes_pcCns, data, 0, data.length);
@@ -892,7 +908,7 @@ public class Record {
 	public static void setProfissinalSaude_psCns(String profissinalSaude_psCns) {
 		try {
 			openRecord();
-			String rec = "profissinalSaude_psCns=" + profissinalSaude_psCns;
+			String rec = "profissinalsaude_pscns=" + profissinalSaude_psCns;
 			byte[] data = rec.getBytes();
 			if (idProfissinalSaude_psCns != 0) {// registro já existe
 				rs.setRecord(idProfissinalSaude_psCns, data, 0, data.length);
@@ -931,9 +947,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idLogin));
-			login = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			if (idLogin!=0) {
+				String rec = new String(rs.getRecord(idLogin));
+				login = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -963,9 +980,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idSenha!=0) {
 			String rec = new String(rs.getRecord(idSenha));
 			senha = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -995,10 +1013,11 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsCnes!=0) {
 			String rec = new String(rs.getRecord(idUsCnes));
 			usCnes = rec.substring(rec.indexOf('=') + 1, rec.length());
 			for (int i = 0; i < rec.length(); i++) {
-
+			}
 			}
 
 		} catch (RecordStoreFullException e) {
@@ -1030,9 +1049,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idCidade_ciSigla!=0) {
 			String rec = new String(rs.getRecord(idCidade_ciSigla));
 			cidade_ciSigla = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1062,9 +1082,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsNome!=0) {
 			String rec = new String(rs.getRecord(idUsNome));
 			usNome = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1094,9 +1115,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsSigla!=0) {
 			String rec = new String(rs.getRecord(idUsSigla));
 			usSigla = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1126,9 +1148,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsRazaoSocial!=0) {
 			String rec = new String(rs.getRecord(idUsRazaoSocial));
 			usRazaoSocial = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1158,9 +1181,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsCnpj!=0) {
 			String rec = new String(rs.getRecord(idUsCnpj));
 			usCnpj = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1190,9 +1214,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idUsEndereco!=0) {
 			String rec = new String(rs.getRecord(idUsEndereco));
 			usEndereco = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1222,8 +1247,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idPcCns));
-			pcCns = rec.substring(rec.indexOf('=') + 1, rec.length());
+			if (idPcCns!=0) {
+				String rec = new String(rs.getRecord(idPcCns));
+				pcCns = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
@@ -1254,9 +1281,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idPcNome));
-			pcNome = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			if (idPcNome!=0) {
+				String rec = new String(rs.getRecord(idPcNome));
+				pcNome = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1286,9 +1314,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idPcDtNasc));
-			pcDtNasc = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			if(idPcDtNasc!=0) {
+				String rec = new String(rs.getRecord(idPcDtNasc));
+				pcDtNasc = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1318,9 +1347,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idPcSexo));
-			pcSexo = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			if (idPcSexo!=0) {
+				String rec = new String(rs.getRecord(idPcSexo));
+				pcSexo = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1350,9 +1380,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
-			String rec = new String(rs.getRecord(idPcEndereco));
-			pcEndereco = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			if(idPcEndereco!=0) {
+				String rec = new String(rs.getRecord(idPcEndereco));
+				pcEndereco = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1382,9 +1413,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idPsCns!=0) {
 			String rec = new String(rs.getRecord(idPsCns));
 			psCns = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1414,9 +1446,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idPsNome!=0) {
 			String rec = new String(rs.getRecord(idPsNome));
 			psNome = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1446,9 +1479,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idPsCbo!=0) {
 			String rec = new String(rs.getRecord(idPsCbo));
 			psCbo = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1478,9 +1512,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idPsCr!=0) {
 			String rec = new String(rs.getRecord(idPsCr));
 			psCr = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1510,9 +1545,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idFdDtProducao!=0) {
 			String rec = new String(rs.getRecord(idFdDtProducao));
 			fdDtProducao = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1542,9 +1578,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idFdID!=0) {
 			String rec = new String(rs.getRecord(idFdID));
 			fdID = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1574,9 +1611,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idFolha_folID!=0) {
 			String rec = new String(rs.getRecord(idFolha_folID));
 			folha_folID = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1606,10 +1644,11 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idProcedimentos_proCodigo!=0) {
 			String rec = new String(rs.getRecord(idProcedimentos_proCodigo));
 			procedimentos_proCodigo = rec.substring(rec.indexOf('=') + 1, rec
 					.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1639,9 +1678,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idPacientes_pcCns!=0) {
 			String rec = new String(rs.getRecord(idPacientes_pcCns));
 			pacientes_pcCns = rec.substring(rec.indexOf('=') + 1, rec.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1671,10 +1711,11 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idProfissinalSaude_psCns!=0) {
 			String rec = new String(rs.getRecord(idProfissinalSaude_psCns));
 			profissinalSaude_psCns = rec.substring(rec.indexOf('=') + 1, rec
 					.length());
-
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1713,8 +1754,10 @@ public class Record {
 		try {
 			// abre o registro
 			openRecord();
+			if (idArrayDeNomes!=0) {
 			String rec = new String(rs.getRecord(idArrayDeNomes));
 			nomes = rec.substring(rec.indexOf('=') + 1, rec.length());
+			}
 		} catch (RecordStoreFullException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
