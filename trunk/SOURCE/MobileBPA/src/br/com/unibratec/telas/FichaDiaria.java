@@ -43,7 +43,7 @@ public class FichaDiaria extends Form implements CommandListener {
 		pacientes_pcCns = new TextField("CNS Paciente: ", "", 6, TextField.ANY);
 		profissinalSaude_psCns = new TextField("CNS Profissional :", "", 6, TextField.ANY);
 
-//		append(fdDtProducao);
+		append(fdDtProducao);
 		append(fdID);
 		append(folha_folID);
 		append(procedimentos_proCodigo);
