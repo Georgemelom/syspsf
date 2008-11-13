@@ -9,12 +9,32 @@ import br.com.unibratec.core.UIController;
 
 public class ListaAtendimento extends List implements CommandListener {
 
-	private static ListaAtendimento instance;
+	Command selectCmd = new Command("Visualizar", Command.ITEM, 1);
+	Command exitCmd = new Command("Sair", Command.EXIT, 1);
+
+	Command saveCmd = new Command("Salvar", Command.SCREEN, 1);
+	Command deleteCmd = new Command("Remover", Command.SCREEN, 1);
+	Command cancelCmd = new Command("Cancelar", Command.SCREEN, 1);
+
+	Command searchCmd = new Command("Buscar", Command.SCREEN, 1);
+
+	List listaFd = new List("Fichas", List.IMPLICIT);
+//	EditFormFd formFd = new EditFormFd();
+//	SearchFormFd searchFormFd = new SearchFormFd();
+
+//	NameComparatorFd orderby = new NameComparatorFd();
+//	NameFilterFd nameFilter = new NameFilterFd(orderby);
+
+	private ListaAtendimento[] currentFichaList;
+
+	
 	
 	private Command cmd_sair;
 	private Command cmd_voltar;
-	private Command cmd_ok;
-
+	private Command cmd_alterar;
+	
+	private static ListaAtendimento instance;
+	
 	private ListaAtendimento(String title) {
 		super(title, IMPLICIT);
 
@@ -25,11 +45,11 @@ public class ListaAtendimento extends List implements CommandListener {
 
 		cmd_sair = new Command("sair", Command.EXIT, 0);
 		cmd_voltar = new Command("voltar", Command.BACK, 1);
-		cmd_ok = new Command("Ok", Command.OK, 2);
+		cmd_alterar = new Command("Alterar", Command.OK, 2);
 
 		addCommand(cmd_sair);
 		addCommand(cmd_voltar);
-		addCommand(cmd_ok);
+		addCommand(cmd_alterar);
 
 		setCommandListener(this);
 	}
@@ -46,7 +66,7 @@ public class ListaAtendimento extends List implements CommandListener {
 			UIController.getInstance().sair();
 		} else if (cmd.equals(cmd_voltar)) {
 			UIController.getInstance().voltar();
-		} else if (cmd.equals(cmd_ok)) {
+		} else if (cmd.equals(cmd_alterar)) {
 //			UIController.getInstance().ok(getSelectedIndex());
 		}
 	}
