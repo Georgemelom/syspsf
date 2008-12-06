@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.Statement;
+
 public class GerenciadorConexao {
 
 	public static Connection getConexao() {
@@ -20,6 +22,10 @@ public class GerenciadorConexao {
 	        String username = "root";
 	        String password = "123";
 	        connection = DriverManager.getConnection(url, username, password);
+	        
+	        Statement stmt =  (Statement) connection.createStatement();
+	        
+	        
 	    } catch (ClassNotFoundException e) {
 	        // Could not find the database driver
 	    	System.err.println(e.getMessage());

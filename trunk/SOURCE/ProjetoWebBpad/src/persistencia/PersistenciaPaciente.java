@@ -1,5 +1,6 @@
 package persistencia;
 
+import java.io.DataOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -75,6 +76,8 @@ public class PersistenciaPaciente {
 			while (rs.next()) {
 				Paciente paciente = recuperarPacienteDoResultSet(rs);
 				pacienteEncontrado.add(paciente);
+				
+				
 			}
 
 			stmt.close();
@@ -96,7 +99,7 @@ public class PersistenciaPaciente {
 		try {
 			PreparedStatement stmt = con
 					.prepareStatement("SELECT * FROM bpad.pacientes WHERE pcCns = ?");
-			stmt.setString(1, psCnsPaciente.getPcCns().toString());
+			stmt.setString(0, psCnsPaciente.getPcCns().toString());
 
 			ResultSet rs = stmt.executeQuery();
 			rs.next();

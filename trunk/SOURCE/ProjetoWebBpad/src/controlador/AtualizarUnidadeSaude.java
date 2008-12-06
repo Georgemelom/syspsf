@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import servlet.AuxilioServlets;
+
 import excecoes.PadraoException;
 
 import modelo.entidades.UnidadeSaude;
@@ -22,8 +24,8 @@ import negocio.NegocioUnidadeSaude;
 public class AtualizarUnidadeSaude<Uscnpj> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String urlDestino = "/protegida/atualizarUS.jsp";
-	private ArrayList<String> erros = new ArrayList<String>();
-	private ArrayList<String> mensagens = new ArrayList<String>();
+	private ArrayList<String> erros;
+	private String mensagens = new String();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -75,7 +77,8 @@ public class AtualizarUnidadeSaude<Uscnpj> extends HttpServlet {
 
 		String acao = request.getParameter("hidAcao");
 		UnidadeSaude unidadeSaudeParam = criarUnidadeSaude(request);
-
+		erros = new ArrayList<String>();
+		
 		if (acao.equals("atualizarUnidade")) {
 
 			try {
@@ -83,7 +86,7 @@ public class AtualizarUnidadeSaude<Uscnpj> extends HttpServlet {
 						.atualizar(unidadeSaudeParam));
 
 
-				mensagens.add("Operação realizada com sucesso");
+				mensagens = "Operação realizada com sucesso";
 
 			} catch (NumberFormatException nf) {
 				erros.add(nf.getMessage());
@@ -91,17 +94,17 @@ public class AtualizarUnidadeSaude<Uscnpj> extends HttpServlet {
 				erros.add(pe.getMessage());
 			}
 
-		} else if (acao.equals("detalharUnidade")) {
+		} else if (acao.equals("detalharUnidadeSaude")) {
 
 			try {
 				request.setAttribute("unidadesaude", NegocioUnidadeSaude
 						.detalhar(unidadeSaudeParam));
 
-				// request.getSession().setAttribute("unidadesaude",
-				// NegocioUnidadeSaude.detalhar(
-				// unidadeSaudeParam));
+				 request.getSession().setAttribute("unidadesaude",
+				 NegocioUnidadeSaude.detalhar(
+				 unidadeSaudeParam));
 
-				mensagens.add("Operação realizada com sucesso");
+				mensagens = "Operação realizada com sucesso";
 
 			} catch (NumberFormatException nf) {
 				erros.add(nf.getMessage());

@@ -29,7 +29,7 @@ public class NegocioUnidadeSaude {
 		return PersistenciaUnidadeSaude.detalhar(usCnes);
 	}
 	
-	public static UnidadeSaude atualizar(UnidadeSaude unidadeSaudeNova) throws ExistePessoaException {
+	public static UnidadeSaude atualizar(UnidadeSaude unidadeSaudeNova) throws PadraoException {
 		if (!existeUnidadeSaude(unidadeSaudeNova)){
 			return PersistenciaUnidadeSaude.atualizar(unidadeSaudeNova);
 		} else {

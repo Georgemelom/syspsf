@@ -12,6 +12,16 @@
   </welcome-file-list>
   <servlet>
     <description></description>
+    <display-name>home</display-name>
+    <servlet-name>home</servlet-name>
+    <servlet-class>controlador.home</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/protegida/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>CadastrarUnidadeSaude</display-name>
     <servlet-name>CadastrarUnidadeSaude</servlet-name>
     <servlet-class>controlador.CadastrarUnidadeSaude</servlet-class>
@@ -40,8 +50,7 @@
     <servlet-name>AtualizarUnidadeSaude</servlet-name>
     <url-pattern>/protegida/AtualizarUnidadeSaude</url-pattern>
   </servlet-mapping>
-
-<servlet>
+  <servlet>
     <description></description>
     <display-name>CadastrarProfissional</display-name>
     <servlet-name>CadastrarProfissional</servlet-name>
@@ -50,6 +59,46 @@
   <servlet-mapping>
     <servlet-name>CadastrarProfissional</servlet-name>
     <url-pattern>/protegida/CadastrarProfissional</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CadastrarFichaDiaria</display-name>
+    <servlet-name>CadastrarFichaDiaria</servlet-name>
+    <servlet-class>controlador.CadastrarFichaDiaria</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastrarFichaDiaria</servlet-name>
+    <url-pattern>/protegida/CadastrarFichaDiaria</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConsultarFichaDiaria</display-name>
+    <servlet-name>ConsultarFichaDiaria</servlet-name>
+    <servlet-class>controlador.ConsultarFichaDiaria</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConsultarFichaDiaria</servlet-name>
+    <url-pattern>/protegida/ConsultarFichaDiaria</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AtualizarFichaDiaria</display-name>
+    <servlet-name>AtualizarFichaDiaria</servlet-name>
+    <servlet-class>controlador.AtualizarFichaDiaria</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AtualizarFichaDiaria</servlet-name>
+    <url-pattern>/protegida/AtualizarFichaDiaria</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BPAServlet</display-name>
+    <servlet-name>BPAServlet</servlet-name>
+    <servlet-class>controlador.BPAServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BPAServlet</servlet-name>
+    <url-pattern>/protegida/BPAServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -71,8 +120,7 @@
     <servlet-name>AtualizarProfissional</servlet-name>
     <url-pattern>/protegida/AtualizarProfissional</url-pattern>
   </servlet-mapping>
-
-<servlet>
+  <servlet>
     <description></description>
     <display-name>CadastrarPaciente</display-name>
     <servlet-name>CadastrarPaciente</servlet-name>
@@ -102,5 +150,33 @@
     <servlet-name>AtualizarPaciente</servlet-name>
     <url-pattern>/protegida/AtualizarPaciente</url-pattern>
   </servlet-mapping>
-
- </web-app>
+  <servlet>
+    <description></description>
+    <display-name>RelatorioFichaDiaria</display-name>
+    <servlet-name>RelatorioFichaDiaria</servlet-name>
+    <servlet-class>relatorios.RelatorioFichaDiaria</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RelatorioFichaDiaria</servlet-name>
+    <url-pattern>/relatorios/FichasporData</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>FiltroChecaEstaLogado</display-name>
+    <filter-name>FiltroChecaEstaLogado</filter-name>
+    <filter-class>servlet.FiltroChecaEstaLogado</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltroChecaEstaLogado</filter-name>
+    <url-pattern>/protegida/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletLogin</display-name>
+    <servlet-name>ServletLogin</servlet-name>
+    <servlet-class>servlet.ServletLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLogin</servlet-name>
+    <url-pattern>/ServletLogin</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,6 +1,5 @@
 package controlador;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -12,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.entidades.UnidadeSaude;
 import negocio.NegocioUnidadeSaude;
+import persistencia.PersistenciaFichaDiaria;
+import persistencia.PersistenciaPaciente;
+import persistencia.PersistenciaProcedimento;
 import excecoes.ExistePessoaException;
 
 /**
@@ -42,7 +44,7 @@ public class CadastrarUnidadeSaude extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String acao = request.getParameter("hidAcao");
-		if (acao.equals("adicionarUnidade")) {
+		if (acao.equals("adicionarUnidadeSaude")) {
 
 			UnidadeSaude unidadeSaudeNova = criarUnidadeSaude(request);
 
@@ -66,17 +68,18 @@ public class CadastrarUnidadeSaude extends HttpServlet {
 			request.setAttribute("mensagens", mensagens);
 	}
 
-
 	private UnidadeSaude criarUnidadeSaude(HttpServletRequest request) {
 
 		UnidadeSaude unidadeSaudeNova = new UnidadeSaude();
 
-		unidadeSaudeNova.setUsCnes(Integer
-				.valueOf(request.getParameter("usCnes")));
-		unidadeSaudeNova.setCidade_ciSigla(request.getParameter("cidade_ciSigla"));
+		unidadeSaudeNova.setUsCnes(Integer.valueOf(request
+				.getParameter("usCnes")));
+		unidadeSaudeNova.setCidade_ciSigla(request
+				.getParameter("cidade_ciSigla"));
 		unidadeSaudeNova.setUsNome(request.getParameter("usNome"));
 		unidadeSaudeNova.setUsSigla(request.getParameter("usSigla"));
-		unidadeSaudeNova.setUsRazaoSocial(request.getParameter("usRazaoSocial"));
+		unidadeSaudeNova
+				.setUsRazaoSocial(request.getParameter("usRazaoSocial"));
 		unidadeSaudeNova.setUsCnpj(request.getParameter("usCnpj"));
 		unidadeSaudeNova.setUsEndereco(request.getParameter("usEndereco"));
 
@@ -89,7 +92,7 @@ public class CadastrarUnidadeSaude extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		doAcao(request, response);
+		// doAcao(request, response);
 	}
 
 	/**

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import servlet.AuxilioServlets;
+
 import modelo.entidades.Profissional;
 import negocio.NegocioProfissional;
 
@@ -64,7 +66,7 @@ public class ConsultarProfissional<psCns> extends HttpServlet {
 
 		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("psCns")))
 			
-		profissionalNovo.setPsCns(Integer.valueOf(request.getParameter("psCns")));
+		profissionalNovo.setPsCns(request.getParameter("psCns"));
 		
 		
 		return profissionalNovo;
