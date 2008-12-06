@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import servlet.AuxilioServlets;
+
 import modelo.entidades.Profissional;
 import negocio.NegocioProfissional;
 import excecoes.PadraoException;
@@ -120,8 +122,7 @@ public class AtualizarProfissional<Uscnpj> extends HttpServlet {
 
 		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("psCns")))
 
-			profissionalNovo.setPsCns(Integer.valueOf(request
-					.getParameter("psCns")));
+			profissionalNovo.setPsCns(request.getParameter("psCns"));
 
 		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("cbo_Cbo")))
 

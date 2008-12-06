@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import servlet.AuxilioServlets;
+
 import modelo.entidades.Paciente;
 import negocio.NegocioPaciente;
 

@@ -25,8 +25,8 @@ public class NegocioFichaDiaria {
 		return PersistenciaFichaDiaria.listar(unidadeSaudeParam);
 	}
 
-	public static FichaDiaria detalhar(FichaDiaria usCnes) throws PadraoException{
-		return PersistenciaFichaDiaria.detalhar(usCnes);
+	public static FichaDiaria detalhar(FichaDiaria fdID) throws PadraoException{
+		return PersistenciaFichaDiaria.detalhar(fdID);
 	}
 	
 	public static FichaDiaria atualizar(FichaDiaria fichaDiariaNova) throws ExistePessoaException {

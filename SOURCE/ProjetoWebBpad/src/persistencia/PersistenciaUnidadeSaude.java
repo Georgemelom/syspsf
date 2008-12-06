@@ -70,10 +70,7 @@ public class PersistenciaUnidadeSaude {
 					
 			}
 			
-				
 			
-			
-
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(sql + where);
 
@@ -107,7 +104,7 @@ public class PersistenciaUnidadeSaude {
 			unidadeSaude = recuperarUnidadeSaudeDoResultSet(rs);
 
 		} catch (SQLException e) {
-			throw new PadraoException("Erro na consulta de detalhar empregado: " 
+			throw new PadraoException("Erro na consulta detalhando Unidade: " 
 					+ e.getMessage());
 		}
 		return unidadeSaude;
@@ -129,16 +126,19 @@ public class PersistenciaUnidadeSaude {
 	}
 
 	
-	public static UnidadeSaude atualizar(UnidadeSaude usUpdate) {
+	public static UnidadeSaude atualizar(UnidadeSaude usUpdate) throws PadraoException {
 		Connection con = GerenciadorConexao.getConexao();
 
 		try {
 			PreparedStatement stmt = con
 					.prepareStatement
 					("UPDATE bpad.unidadesaude SET "
-							+ "usCnes = ?, " + "cidade_ciSigla = ?, "
-							+ "usNome = ?, " + "usSigla = ?, "
-							+ "usRazaoSocial = ?, " + "usCnpj = ?, "
+							+ "usCnes = ?, "
+							+ "cidade_ciSigla = ?, "
+							+ "usNome = ?, " 
+							+ "usSigla = ?, "
+							+ "usRazaoSocial = ?, "
+							+ "usCnpj = ?, "
 							+ "usEndereco = ? "
 							+ "WHERE UsCnes = ?");
 						
@@ -159,7 +159,8 @@ public class PersistenciaUnidadeSaude {
 			con.close();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new PadraoException("Erro na consulta detalhando Unidade: " 
+					+ e.getMessage());
 		}
 
 		return usUpdate;

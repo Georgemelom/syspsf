@@ -8,6 +8,7 @@ td {
 	font:11px Arial, Helvetica, sans-serif;
 	color:#FFFF00;
 	}
+
 	
 a {
 	color: #FF080E;
@@ -101,15 +102,39 @@ a:hover {
 	
 .tituloSecao{
 	font:18px Arial, Helvetica, sans-serif;
-	color: #FFFF00;
+	color: #000000;
 	line-height:24px;
 	letter-spacing:.3em;
 	text-align: center;
 	}
+.style2 {
+	font-size: 16px
+}
+.style3 {
+	font-size: 12px;
+	font-weight: bold;
+	color : #000000
+}
+
+.tituloCampo {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.style4 {
+	font-size: 14px
+	color: #000000;
+}
+
+.style5 {
+	font-size: 12px;
+	color: #000000;
+}
 
 .tituloCampo{
 	font:16px Arial, Helvetica, sans-serif;
-	color: #FFFF00;
+	color: #000000;
 	line-height:24px;
 	letter-spacing:.3em;
 	text-align: right;

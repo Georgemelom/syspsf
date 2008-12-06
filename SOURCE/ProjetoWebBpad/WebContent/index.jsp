@@ -11,85 +11,21 @@
 	name=copyright>
 <META content="MSHTML 6.00.6000.16705" name=GENERATOR>
 </HEAD>
-<script type="text/javascript">
-<!--
-//Create a boolean variable to check for a valid Internet Explorer instance.
-var xmlhttp = false;
-//Check if we are using IE.
-try {
-//If the Javascript version is greater than 5.
-xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-//alert ("You are using Microsoft Internet Explorer.");
-} catch (e) {
-//If not, then use the older active x object.
-try {
-//If we are using Internet Explorer.
-xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//alert ("You are using Microsoft Internet Explorer");
-} catch (E) {
-//Else we must be using a non-IE browser.
-xmlhttp = false;
-}
-}
-//If we are using a non-IE browser, create a javascript instance of the object.
-if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-xmlhttp = new XMLHttpRequest();
-//alert ("You are not using Microsoft Internet Explorer");
-}
-function makerequest(serverPage, objID) {
-var obj = document.getElementById(objID);
-xmlhttp.open("GET", serverPage);
-xmlhttp.onreadystatechange = function() 
-	{
-	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		obj.innerHTML = xmlhttp.responseText;
-		}
-	}
-xmlhttp.send(null);
-}
-
-//-->
-</script>
-<SCRIPT language=javascript type=text/javascript>/* <![CDATA[ */var root = '/testrun';
-      var a = document.getElementsByTagName("a");
-      for(i = 0; i< a.length; i++)
-         if(a[i].id != '')
-            a[i].onclick = count_link;
-      function count_link() {
-         i = new Image();
-         i.src= root+'/cl.php?id='+this.id;
-         return true;
-      }
-      /* ]]> */
-</SCRIPT>
-
 <BODY>
 <DIV id=container>
 <DIV class=header>
-<H1><IMG alt="BPA Digital" src="images/logo.gif" border=0></A></H1>
+	<H1><IMG alt="BPA Digital" src="images/logo.gif" border=0></H1>
 </DIV>
 <DIV class=bar><SPAN></SPAN>
 <UL>
-	<LI><A class=common href="home.jsp"
-		onClick="makerequest('home.jsp','conteudo');return false;">Home</A></LI>
-	<LI><A class=common href="protegida/unidadeDeSaude.jsp"
-		onClick="makerequest('protegida/unidadeDeSaude.jsp','submenu');return false;">Unidade
+	<LI><A class=common href="protegida/home.jsp">Home</A></LI>
+	<LI><A class=common href="protegida/unidadeDeSaude.jsp" style="width: 175px">Unidade
 	de Saude</A></LI>
-	<LI><A class=common href="protegida/profissional.jsp"
-		onClick="makerequest('protegida/profissional.jsp','submenu');return false;">Profissional
+	<LI><A class=common href="protegida/profissional.jsp" style="width: 173px">Profissional
 	de Saúde</A></LI>
-	<LI><A class=common href="protegida/paciente.jsp"
-		onClick="makerequest('protegida/paciente.jsp','submenu');return false;">Paciente</A>
-	</LI>
-	<LI><A class=common href="protegida/fichaDiaria.jsp"
-		onClick="makerequest('protegida/boletim.jsp','submenu');return false;">Boletim</A>
-	</LI>
-	<LI><A class=common href="protegida/consolidação.jsp"
-		onClick="makerequest('protegida/consolidação.jsp','submenu');return false;">Consolidação</A>
-	</LI>
-
-	<LI></LI>
-	<LI></LI>
+	<LI><A class=common href="protegida/paciente.jsp">Paciente</A></LI>
+	<LI><A class=common href="protegida/fichaDiaria.jsp">Boletim</A></LI>
+	<LI><A class=common href="protegida/relatorios.jsp">Relatorios</A></LI>
 </UL>
 </DIV>
 <!--Div conteudo que usa ajax -->
@@ -117,13 +53,13 @@ xmlhttp.send(null);
 			</TABLE>
 			<BR>
 			</TD>
-			
+
 
 			<TD class=padding2 vAlign=top width=221>
 			<H2 class=boxcaption>Autenticacao</H2>
 			<DIV class=box>
-			<FORM action=/testrun/index.php method=get><label>
-			Login :</label> <input type="text" name="login" id="login"> <br />
+			<form action="ServletLogin" method=post><label> Login
+			:</label> <input type="text" name="login" id="login"><br />
 			<br />
 			<label>Senha :</label> <input type="password" name="senha" id="senha"
 				size="10"> <br />
@@ -131,9 +67,6 @@ xmlhttp.send(null);
 			<INPUT type=submit value="OK"></FORM>
 			</DIV>
 			<P class=boxbottom></P>
-
-
-
 			</TD>
 			<TD class=padding2 vAlign=top width=221>&nbsp;</TD>
 		</TR>

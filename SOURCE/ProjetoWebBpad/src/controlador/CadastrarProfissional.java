@@ -69,8 +69,7 @@ public class CadastrarProfissional extends HttpServlet {
 
 		Profissional profissionalNovo = new Profissional();
 
-		profissionalNovo.setPsCns(Integer
-				.valueOf(request.getParameter("psCns")));
+		profissionalNovo.setPsCns(request.getParameter("psCns"));
 		profissionalNovo.setCbo_Cbo(request.getParameter("cbo_Cbo"));
 		profissionalNovo.setConselhos_conselho(request
 				.getParameter("conselhos_conselho"));

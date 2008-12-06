@@ -2,6 +2,8 @@ package controlador;
 
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,7 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.entidades.FichaDiaria;
+import modelo.entidades.Paciente;
+import modelo.entidades.Procedimento;
+import modelo.entidades.Profissional;
 import negocio.NegocioFichaDiaria;
+import persistencia.PersistenciaFichaDiaria;
+import persistencia.PersistenciaPaciente;
+import persistencia.PersistenciaProcedimento;
+import persistencia.PersistenciaProfissional;
 import excecoes.ExistePessoaException;
 
 /**
@@ -42,7 +51,7 @@ public class CadastrarFichaDiaria extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String acao = request.getParameter("hidAcao");
-		if (acao.equals("adicionarFicha")) {
+		if (acao.equals("adicionarFichaDiaria")) {
 
 			FichaDiaria fichaDiariaNova = criarFichaDiaria(request);
 
@@ -60,6 +69,15 @@ public class CadastrarFichaDiaria extends HttpServlet {
 				}
 				mensagens.add("Ficha incluída com sucesso!");
 			}
+		} else if (acao.equals("montar")) {
+			request.setAttribute("listaFicha", PersistenciaFichaDiaria
+					.listar(new FichaDiaria()));
+			request.setAttribute("listaPaciente", PersistenciaPaciente
+					.listar(new Paciente()));
+			request.setAttribute("listaProcediemnto", PersistenciaProcedimento
+					.listar(new Procedimento()));
+			request.setAttribute("listaProcediemnto", PersistenciaProfissional.
+					listar(new Profissional()));
 		} 
 
 		if (!mensagens.isEmpty())
@@ -72,11 +90,22 @@ public class CadastrarFichaDiaria extends HttpServlet {
 		FichaDiaria fichaDiariaNova = new FichaDiaria();
 
 		fichaDiariaNova.setFdID(Integer.valueOf(request.getParameter("fdID")));
-		fichaDiariaNova.setFolha_FoID(request.getParameter("folha_FoID"));
-		fichaDiariaNova.setProcedimentos_proCodigo(request.getParameter("procedimentos_proCodigo"));
-		fichaDiariaNova.setPacientes_pcCns(request.getParameter("pacientes_pcCns"));
-		fichaDiariaNova.setProfissionalSaude_psCns(request.getParameter("profissionalSaude_psCns"));
-		
+		fichaDiariaNova.setProcedimentos_proCodigo(request
+				.getParameter("procedimentos_proCodigo"));
+		fichaDiariaNova.setPacientes_pcCns(request
+				.getParameter("pacientes_pcCns"));
+		fichaDiariaNova.setProfissionalSaude_psCns(request
+				.getParameter("profissionalSaude_psCns"));
+
+		try {
+			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+
+			fichaDiariaNova.setFdDtProducao(formato.parse(request
+					.getParameter("fdDtProducao")));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			erros.add("Formato da data de producao inválido. Use DD/MM/AAAA.");
+		}
 		return fichaDiariaNova;
 	}
 

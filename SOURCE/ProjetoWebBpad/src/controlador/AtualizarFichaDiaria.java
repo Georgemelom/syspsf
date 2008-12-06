@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import servlet.AuxilioServlets;
 
 import excecoes.PadraoException;
 
@@ -19,7 +23,7 @@ import negocio.NegocioFichaDiaria;
  * 
  * @param <fdID>
  */
-public class AtualizarFichaDiaria<Uscnpj> extends HttpServlet {
+public class AtualizarFichaDiaria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String urlDestino = "/protegida/atualizarFD.jsp";
 	private ArrayList<String> erros = new ArrayList<String>();
@@ -76,12 +80,11 @@ public class AtualizarFichaDiaria<Uscnpj> extends HttpServlet {
 		String acao = request.getParameter("hidAcao");
 		FichaDiaria fichaDiariaParam = criarFichaDiaria(request);
 
-		if (acao.equals("atualizarFicha")) {
+		if (acao.equals("atualizarFichaDiaria")) {
 
 			try {
-				request.setAttribute("fichadiaria", NegocioFichaDiaria
+				request.setAttribute("fichaDiaria", NegocioFichaDiaria
 						.atualizar(fichaDiariaParam));
-
 
 				mensagens.add("Operação realizada com sucesso");
 
@@ -91,10 +94,10 @@ public class AtualizarFichaDiaria<Uscnpj> extends HttpServlet {
 				erros.add(pe.getMessage());
 			}
 
-		} else if (acao.equals("detalharFicha")) {
+		} else if (acao.equals("detalharFichaDiaria")) {
 
 			try {
-				request.setAttribute("fichadiaria", NegocioFichaDiaria
+				request.setAttribute("fichaDiaria", NegocioFichaDiaria
 						.detalhar(fichaDiariaParam));
 
 				// request.getSession().setAttribute("fichadiaria",
@@ -123,9 +126,15 @@ public class AtualizarFichaDiaria<Uscnpj> extends HttpServlet {
 
 			fichaDiariaNova.setFdID(Integer.valueOf(request.getParameter("fdID")));
 
-		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("folha_FoID")))
-
-			fichaDiariaNova.setFolha_FoID(request.getParameter("folha_FoID"));
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("fdDtProducao")))
+			try {
+				fichaDiariaNova.setFdDtProducao(formato.parse(request.getParameter(
+				"fdDtProducao")));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("procedimentos_proCodigo")))
 

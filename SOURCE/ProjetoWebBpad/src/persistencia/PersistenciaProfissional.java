@@ -112,7 +112,7 @@ public class PersistenciaProfissional {
 			throws SQLException {
 		Profissional profissional = new Profissional();
 
-		profissional.setPsCns(Integer.valueOf(rs.getString("psCns")));
+		profissional.setPsCns(rs.getString("psCns"));
 		profissional.setCbo_Cbo(rs.getString("cbo_Cbo"));
 		profissional.setConselhos_conselho(rs.getString("conselhos_conselho"));
 		profissional.setUnidadeSaude_usCnes(rs.getString("unidadeSaude_usCnes"));

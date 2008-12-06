@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import servlet.AuxilioServlets;
+
 import modelo.entidades.FichaDiaria;
 import negocio.NegocioFichaDiaria;
 
@@ -17,7 +19,7 @@ import negocio.NegocioFichaDiaria;
  * 
  * @param <Uscnpj>
  */
-public class ConsultarFichaDiaria<usCnes> extends HttpServlet {
+public class ConsultarFichaDiaria<fdID> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String urlDestino = "/protegida/consultarFD.jsp";
 	private ArrayList<String> erros = new ArrayList<String>();
@@ -36,7 +38,7 @@ public class ConsultarFichaDiaria<usCnes> extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		FichaDiaria fichaDiariaParam = criarUnidadeSaude(request);
+		FichaDiaria fichaDiariaParam = criarFichaDiaria(request);
 		
 		ArrayList<FichaDiaria> encontradas = null;
 		
@@ -58,13 +60,13 @@ public class ConsultarFichaDiaria<usCnes> extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	private FichaDiaria criarUnidadeSaude(HttpServletRequest request) {
+	private FichaDiaria criarFichaDiaria(HttpServletRequest request) {
 
 		FichaDiaria fichaDiariaNova = new FichaDiaria();
 
 		if (AuxilioServlets.naoEhNuloOuVazio(request.getParameter("fdID")))
 			
-		fichaDiariaNova.setFdID(Integer.valueOf(request.getParameter("fdID")));
+			fichaDiariaNova.setFdID(Integer.valueOf(request.getParameter("fdID")));
 		
 		
 		return fichaDiariaNova;

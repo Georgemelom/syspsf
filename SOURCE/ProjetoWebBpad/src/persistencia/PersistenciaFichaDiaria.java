@@ -17,15 +17,17 @@ public class PersistenciaFichaDiaria {
 		try {
 			PreparedStatement stmt = con
 					.prepareStatement("INSERT INTO bpad.fichadiaria" +
-							"(fdID, folha_FoID, procedimentos_proCodigo, pacientes_pcCns, profissionalSaude_psCns) " +
+							"(fdID, procedimentos_proCodigo, pacientes_pcCns, profissionalSaude_psCns, fdDtProducao) " +
 							"VALUES (?,?,?,?,?)");
 
 			stmt.setString(1, String.valueOf(fichaDiariaNova.getFdID()));
 			// Integer i = Integer.parseInt("123");
-			stmt.setString(2, fichaDiariaNova.getFolha_FoID());
-			stmt.setString(3, fichaDiariaNova.getProcedimentos_proCodigo());
-			stmt.setString(4, fichaDiariaNova.getPacientes_pcCns());
-			stmt.setString(5, fichaDiariaNova.getProfissionalSaude_psCns());
+//			stmt.setString(2, fichaDiariaNova.getFolha_FoID());
+			stmt.setString(2, fichaDiariaNova.getProcedimentos_proCodigo());
+			stmt.setString(3, fichaDiariaNova.getPacientes_pcCns());
+			stmt.setString(4, fichaDiariaNova.getProfissionalSaude_psCns());
+			stmt.setDate(5, new java.sql.Date(fichaDiariaNova
+					.getFdDtProducao().getTime()));
 		
 			stmt.executeUpdate();
 			stmt.close();
@@ -57,7 +59,6 @@ public class PersistenciaFichaDiaria {
 				}
 				if (fichaDiariaParam.getProcedimentos_proCodigo() != null) {
 					where += " procedimentos_proCodigo LIKE '" + fichaDiariaParam.getProcedimentos_proCodigo()
-				
 							+ "%'";
 				}
 					
@@ -107,10 +108,11 @@ public class PersistenciaFichaDiaria {
 		FichaDiaria fichaDiaria = new FichaDiaria();
 
 		fichaDiaria.setFdID(Integer.valueOf(rs.getString("fdID")));
-		fichaDiaria.setFolha_FoID(rs.getString("folha_FoID"));
 		fichaDiaria.setProcedimentos_proCodigo(rs.getString("procedimentos_proCodigo"));
 		fichaDiaria.setPacientes_pcCns(rs.getString("pacientes_pcCns"));
 		fichaDiaria.setProfissionalSaude_psCns(rs.getString("profissionalSaude_psCns"));
+		fichaDiaria.setFdDtProducao(new java.util.Date(rs.getDate(
+		"fdDtProducao").getTime()));
 	
 		return fichaDiaria;
 	}
@@ -123,20 +125,22 @@ public class PersistenciaFichaDiaria {
 			PreparedStatement stmt = con
 					.prepareStatement
 					("UPDATE bpad.fichadiaria SET "
-							+ "fdID = ?, " + "folha_FoID = ?, "
+							+ "fdID = ?, " 
 							+ "procedimentos_proCodigo = ?, " 
 							+ "pacientes_pcCns = ?, "
-							+ "profissionalSaude_psCns = ?"
-							+ "WHERE fdID = ?");
+							+ "profissionalSaude_psCns = ?,"
+							+ "fdDtProducao = ? " +
+									"WHERE fdID = ?");
 						
 			stmt.setString(1, String.valueOf(usUpdate.getFdID()));
 			// Integer i = Integer.parseInt("123");
-			stmt.setString(2, usUpdate.getFolha_FoID());
-			stmt.setString(3, usUpdate.getProcedimentos_proCodigo());
-			stmt.setString(4, usUpdate.getPacientes_pcCns());
-			stmt.setString(5, usUpdate.getProfissionalSaude_psCns());
-			stmt.setString(8, String.valueOf(usUpdate.getFdID()));
-
+			stmt.setString(2, usUpdate.getProcedimentos_proCodigo());
+			stmt.setString(3, usUpdate.getPacientes_pcCns());
+			stmt.setString(4, usUpdate.getProfissionalSaude_psCns());
+			stmt.setDate(5, new java.sql.Date(usUpdate
+					.getFdDtProducao().getTime()));
+			stmt.setString(6, String.valueOf(usUpdate.getFdID()));
+			
 
 			stmt.executeUpdate();
 			stmt.close();

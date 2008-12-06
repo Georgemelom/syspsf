@@ -2,7 +2,7 @@ package modelo.entidades;
 
 public class Profissional {
 
-	private Integer psCns; //varchar 6
+	private String psCns; //varchar 6
 	private String cbo_Cbo; //varchar 6
 	private String conselhos_conselho; // varchar 10
 	private String unidadeSaude_usCnes; // varchar 10
@@ -10,10 +10,10 @@ public class Profissional {
 	private String psCpf;	//varchar 12
 	private String psTelefone;	//varchar 15
 	
-	public  Integer getPsCns() {
+	public  String getPsCns() {
 		return psCns;
 	}
-	public  void setPsCns(Integer psCns) {
+	public  void setPsCns(String psCns) {
 		this.psCns = psCns;
 	}
 	public  String getCbo_Cbo() {
