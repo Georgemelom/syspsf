@@ -128,13 +128,13 @@ CREATE TABLE `estado` (
 
 DROP TABLE IF EXISTS `fichadiaria`;
 CREATE TABLE `fichadiaria` (
-  `fdID` varchar(5) NOT NULL DEFAULT '',
-  `procedimentos_proCodigo` varchar(5) NOT NULL,
+  `fdID` int(11) NOT NULL AUTO_INCREMENT,
+  `procedimentos_proCodigo` varchar(10) NOT NULL,
   `pacientes_pcCns` varchar(6) NOT NULL,
   `profissionalSaude_psCns` varchar(6) NOT NULL,
   `fdDtProducao` date NOT NULL,
   PRIMARY KEY (`fdID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `fichadiaria`
@@ -142,11 +142,7 @@ CREATE TABLE `fichadiaria` (
 
 /*!40000 ALTER TABLE `fichadiaria` DISABLE KEYS */;
 INSERT INTO `fichadiaria` (`fdID`,`procedimentos_proCodigo`,`pacientes_pcCns`,`profissionalSaude_psCns`,`fdDtProducao`) VALUES 
- ('1','0023 ','001234','001 ','2008-02-02'),
- ('10','002 ','001 ','001 ','2008-12-05'),
- ('2','001  ','001   ','00122 ','2008-02-02'),
- ('3','001','001','001','2008-12-04'),
- ('4','0035','001   ','004   ','2008-12-06');
+ (1,'030100063','1','1','2008-12-10');
 /*!40000 ALTER TABLE `fichadiaria` ENABLE KEYS */;
 
 
@@ -212,14 +208,35 @@ CREATE TABLE `pacientes` (
 
 /*!40000 ALTER TABLE `pacientes` DISABLE KEYS */;
 INSERT INTO `pacientes` (`pcCns`,`pcNome`,`pcDataNascimento`,`pcSexo`,`pcEndereco`) VALUES 
- ('1','klkjlkjlk','2008-01-01','2','dasdasd  '),
- ('117652','ghfhgsdkajhg','2002-01-01','1','kskjdhfkjshdkjh '),
- ('11768','ghfhgsdkajhg','2002-01-01','1','aaaaaaaaaaaaa'),
- ('11769','TESTE','2008-01-01','1',' rua teste'),
- ('123','teste','2008-01-01','1',' rua teste '),
- ('2','sfdsfd','2008-01-01','1','sdsads'),
- ('3','gfhgf','2000-02-02','1',' sdfsdfsdfsd  ');
+ ('1','GEORGE DE MELO','1990-01-01','M','RUA DA LIMEIRA');
 /*!40000 ALTER TABLE `pacientes` ENABLE KEYS */;
+
+
+--
+-- Definition of table `procedimento`
+--
+
+DROP TABLE IF EXISTS `procedimento`;
+CREATE TABLE `procedimento` (
+  `proCodigo` varchar(10) NOT NULL DEFAULT '',
+  `proDescricao` varchar(45) NOT NULL,
+  `proSexo` varchar(1) NOT NULL,
+  PRIMARY KEY (`proCodigo`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `procedimento`
+--
+
+/*!40000 ALTER TABLE `procedimento` DISABLE KEYS */;
+INSERT INTO `procedimento` (`proCodigo`,`proDescricao`,`proSexo`) VALUES 
+ ('030100063','DIABETICO','U'),
+ ('0301010021','TUBERCULOSE','U'),
+ ('0301010030','CONSULTA','U'),
+ ('0301010064','HANSEN','U'),
+ ('0301010110','GESTANTE','M'),
+ ('0301010137','VISITA DOMICILIAR','U');
+/*!40000 ALTER TABLE `procedimento` ENABLE KEYS */;
 
 
 --
@@ -267,9 +284,7 @@ CREATE TABLE `profissionalsaude` (
 
 /*!40000 ALTER TABLE `profissionalsaude` DISABLE KEYS */;
 INSERT INTO `profissionalsaude` (`psCns`,`cbo_Cbo`,`conselhos_Conselho`,`unidadeSaude_usCnes`,`psNome`,`psCpf`,`psTelefone`) VALUES 
- ('1','ads','adsa','dsa','dsa',NULL,'dsa'),
- ('123','sad','adsads','adsa','dsfd',NULL,'sfds'),
- ('2','dfs','fdsfd','sfdsf','sfds','fds','fds');
+ ('1','1234','123456','234564','DANUBIA DO NASCIMENTO','09983642183','83-88215634');
 /*!40000 ALTER TABLE `profissionalsaude` ENABLE KEYS */;
 
 
@@ -296,24 +311,7 @@ CREATE TABLE `unidadesaude` (
 
 /*!40000 ALTER TABLE `unidadesaude` DISABLE KEYS */;
 INSERT INTO `unidadesaude` (`usCNES`,`Cidade_ciSigla`,`usNome`,`usSigla`,`usRazaoSocial`,`usCNPJ`,`usEndereco`) VALUES 
- ('1','ds','FDG ','FDGF ','DGFD ','GFDGF ','GFD SJHGJHAGJHG'),
- ('123','PSF','PSF    ',' teste ','alterdo ','123 ',' alterado   '),
- ('1231','ST','TEST','TEST',NULL,'TEST','TES'),
- ('12312','hjhij','hkjhkj','hgjhg',NULL,'jhgjhg','jbjhb'),
- ('1232','teste','test','test',NULL,'test','tes'),
- ('1233','test','test','test',NULL,'test','tes'),
- ('1234','JPA','UNIDADE DE SAUDE DO VALENTINA','PSFVF',NULL,'123456','RUA TAL'),
- ('12345','str','unidade santa rita','psfsr',NULL,'123','ressdd'),
- ('123451','jhkjhk','khkjh','khkjh',NULL,'kjhkjh','kjhkj'),
- ('123456','TESTE','TEST','TEST',NULL,'TEST','TEST'),
- ('154','JPA','teste de cadastro','hgjhdgj','hgjhsgdjfhsrjukjshkdjhk','5416524635','HSGDJHGSJHDFGJSHD'),
- ('2','JPA','Pedro ','pj ',NULL,'9090909 ','av. '),
- ('3','dsfd','fdsfd ','sfds ','dfds ','fdsf ','fdsggfdgfdgfdgfdgfd'),
- ('4','fdg','fdgf','dgf','dg','dgf','fd'),
- ('5','sfd','sfd  ','sf  ','dsf  ','dsf  ','dssjdfkjskf fsdf'),
- ('6','jhgjh','hgjhg','jhgjhg','jhgjhg','435436546','jhgjhgjhg'),
- ('7687','JPA',' tefstfhgevs',' fhgsjhg','shfggjh','768768716','gugsdjfgjs'),
- ('999','tste','teste','test',NULL,'ttstes','trtfdcgfcg');
+ ('234564','ICO','UNIDADE SAUDE FAMILIA DE ICO','PSF-CENTRO','SECRETARIA DE SAUDE DO CEARA','12345678901','RUA PRINCIPAL , SN');
 /*!40000 ALTER TABLE `unidadesaude` ENABLE KEYS */;
 
 
