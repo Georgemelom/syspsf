@@ -1,0 +1,1 @@
+sistema de gerenciamento de informações voltado para secretarias de saude, com intuito de automizar dados sobre atendimento e consultas realizadas por profissionais da saude.
